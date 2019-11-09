@@ -1,0 +1,22 @@
+@import "config/styles.scss";
+
+.FooterContainer {
+  height: 4rem;
+  max-width: 1080px;
+  margin: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.FooterTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.FooterSubtitle {
+
+
+}
