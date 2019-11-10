@@ -35,28 +35,44 @@ class HeatmapProfiler:
         self._profiler.runfile(open(self._file.path, mode="r"), {}, self._file.path)
 
     def _profile_data_to_json(self):
-        line_level_profile_data = self._profiler.file_dict[self._file.path][0].line_dict
-
-        test = self._profiler.file_dict[self._file.path][0].getCallListByLine()
-        
-        line_profile_data_to_json = {}
         profile_data_to_json = {}
 
-        for line_num in range(1, self._file.get_line_count() + 1): # TODO: double check line count
-            line_profile_data = {}
+        file_dict = self._profiler._mergeFileTiming()
+        total_time = self._profiler.total_time
+        profile_data_to_json["total_time"] = total_time
 
-            if line_num in line_level_profile_data:
-                line_times = [
-                    line_time for _, line_time in line_level_profile_data[line_num].values()
-                ]
-                line_profile_data["time"] = sum(line_times)
+        if not total_time:
+            return
 
-            else:
-                line_profile_data["time"] = 0
+        def percent(value, scale):
+            if scale == 0:
+                return 0
+            return value * 100 / scale
 
-            line_profile_data_to_json[line_num] = line_profile_data
+        for name in self._profiler._getFileNameList(None):
+            profile_data_to_json = {}
 
-        profile_data_to_json[self._file.path] = line_profile_data_to_json
+            file_timing = file_dict[name]
+            file_total_time = file_timing.getTotalTime()
+            profile_data_to_json[name] = {"file_total_time": file_total_time,
+                                          "file_total_time_percent": percent(file_total_time, total_time)}
+
+            last_line = file_timing.getLastLine()
+            for lineno, line in pprofile.LineIterator(
+                    self._profiler._getline,
+                    file_timing.filename,
+                    file_timing.global_dict,
+            ):
+                if not line and lineno > last_line:
+                    break
+                hits, duration = file_timing.getHitStatsFor(lineno)
+                profile_data_to_json[name][lineno] = {
+                    'hits': hits,
+                    'time': duration,
+                    'time_per_hit': duration / hits if hits else 0,
+                    'percent': percent(duration, total_time),
+                    'line': (line or '').rstrip(),
+                }
 
         with open('line_level_profile.json', 'w', encoding='utf-8') as f:
             json.dump(profile_data_to_json, f, ensure_ascii=False, indent=4)

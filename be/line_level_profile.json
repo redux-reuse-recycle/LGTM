@@ -1,481 +1,1119 @@
 {
     "./test/one_file.py": {
+        "file_total_time": 0.052001237869262695,
+        "file_total_time_percent": 100.0,
         "1": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# (row, col) format"
         },
         "2": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "3": {
-            "time": 0.0
+            "hits": 2,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "UP = (1, 0)"
         },
         "4": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "RIGHT = (0, 1)"
         },
         "5": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "DOWN = (-1, 0)"
         },
         "6": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "LEFT = (0, -1)"
         },
         "7": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "8": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# action is one of UP, RIGHT, DOWN, LEFT"
         },
         "9": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# state: (row, col)"
         },
         "10": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# Returns the state (row, col) before action was applied"
         },
         "11": {
-            "time": 0.0
+            "hits": 430,
+            "time": 0.003998994827270508,
+            "time_per_hit": 9.29998797039653e-06,
+            "percent": 7.690191601446983,
+            "line": "def unapply_action(action, state):"
         },
         "12": {
-            "time": 0.003997325897216797
+            "hits": 429,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    return (state[0] - action[0], state[1] - action[1])"
         },
         "13": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "14": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# Returns the state (row, col) after action is applied"
         },
         "15": {
-            "time": 0.0
+            "hits": 430,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "def apply_action(action, state):"
         },
         "16": {
-            "time": 0.0
+            "hits": 429,
+            "time": 0.003998517990112305,
+            "time_per_hit": 9.320554755506537e-06,
+            "percent": 7.689274628740676,
+            "line": "    return (state[0] + action[0], state[1] + action[1])"
         },
         "17": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "18": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# Observations: 1 for 1 wall, 2 for 2 walls, 3 for end, 0 for no observation"
         },
         "19": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# Returns the probability of observing obs in state"
         },
         "20": {
-            "time": 0.0
+            "hits": 144,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "def observation_prob(state, obs):"
         },
         "21": {
-            "time": 0.0
+            "hits": 143,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    if obs == 3:"
         },
         "22": {
-            "time": 0.0
+            "hits": 11,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "        if state == (3, 4) or state == (2, 4):"
         },
         "23": {
-            "time": 0.0
+            "hits": 2,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "            return 1"
         },
         "24": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        else:"
         },
         "25": {
-            "time": 0.0
+            "hits": 9,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "            return 0"
         },
         "26": {
-            "time": 0.0
+            "hits": 132,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    if obs == 0:"
         },
         "27": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        return 1"
         },
         "28": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "29": {
-            "time": 0.0
+            "hits": 132,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    if state[1] == 3:"
         },
         "30": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        # In 3rd column"
         },
         "31": {
-            "time": 0.0
+            "hits": 36,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "        if obs == 1:"
         },
         "32": {
-            "time": 0.0
+            "hits": 21,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "            return 0.9"
         },
         "33": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        else:"
         },
         "34": {
-            "time": 0.0
+            "hits": 15,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "            return 0.1"
         },
         "35": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "    else:"
         },
         "36": {
-            "time": 0.0
+            "hits": 96,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "        if obs == 2:"
         },
         "37": {
-            "time": 0.0
+            "hits": 40,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "            return 0.9"
         },
         "38": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        else:"
         },
         "39": {
-            "time": 0.0
+            "hits": 56,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "            return 0.1"
         },
         "40": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "41": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# Returns true if state is not (2, 2) and in the grid, false otherwise"
         },
         "42": {
-            "time": 0.0
+            "hits": 820,
+            "time": 0.003998994827270508,
+            "time_per_hit": 4.876822960085985e-06,
+            "percent": 7.690191601446983,
+            "line": "def is_valid_state(state):"
         },
         "43": {
-            "time": 0.008000612258911133
+            "hits": 819,
+            "time": 0.012001991271972656,
+            "time_per_hit": 1.4654445997524611e-05,
+            "percent": 23.080203017757178,
+            "line": "    return state != (2, 2) and 1 <= state[0] <= 3 and 1 <= state[1] <= 4"
         },
         "44": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "45": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# Normalizes a belief object"
         },
         "46": {
-            "time": 0.0
+            "hits": 14,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "def normalize(belief):"
         },
         "47": {
-            "time": 0.0
+            "hits": 13,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    belief_sum = 0"
         },
         "48": {
-            "time": 0.011998891830444336
+            "hits": 156,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    for state in belief:"
         },
         "49": {
-            "time": 0.003995180130004883
+            "hits": 143,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "        belief_sum += belief[state]"
         },
         "50": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "51": {
-            "time": 0.0
+            "hits": 156,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    for state in belief:"
         },
         "52": {
-            "time": 0.0
+            "hits": 143,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "        belief[state] = belief[state] / belief_sum"
         },
         "53": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "54": {
-            "time": 0.0
+            "hits": 13,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    return belief"
         },
         "55": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "56": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# Returns a list of (direction, probability) tuples given an action"
         },
         "57": {
-            "time": 0.0
+            "hits": 144,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "def possible_outcomes(action):"
         },
         "58": {
-            "time": 0.0
+            "hits": 143,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    if action == UP:"
         },
         "59": {
-            "time": 0.0
+            "hits": 88,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "        return [(UP, 0.8), (LEFT, 0.1), (RIGHT, 0.1)]"
         },
         "60": {
-            "time": 0.0
+            "hits": 55,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    elif action == LEFT:"
         },
         "61": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        return [(LEFT, 0.8), (DOWN, 0.1), (UP, 0.1)]"
         },
         "62": {
-            "time": 0.0
+            "hits": 55,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    elif action == RIGHT:"
         },
         "63": {
-            "time": 0.0
+            "hits": 55,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "        return [(RIGHT, 0.8), (UP, 0.1), (DOWN, 0.1)]"
         },
         "64": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "    else:"
         },
         "65": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        # action == DOWN"
         },
         "66": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        return [(DOWN, 0.8), (LEFT, 0.1), (RIGHT, 0.1)]"
         },
         "67": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "68": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# Given an action and a state, returns a mapping of the state(s) the agent may have been in to their probability"
         },
         "69": {
-            "time": 0.0
+            "hits": 144,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "def source_states(action, state):"
         },
         "70": {
-            "time": 0.004002809524536133
+            "hits": 143,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    ss = {}"
         },
         "71": {
-            "time": 0.004002809524536133
+            "hits": 572,
+            "time": 0.003965854644775391,
+            "time_per_hit": 6.933312316040893e-06,
+            "percent": 7.626461998358619,
+            "line": "    for a, prob in possible_outcomes(action):"
         },
         "72": {
-            "time": 0.0
+            "hits": 429,
+            "time": 0.008031845092773438,
+            "time_per_hit": 1.8722249633504516e-05,
+            "percent": 15.44548826504179,
+            "line": "        old_state = unapply_action(a, state)"
         },
         "73": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        # Terminal states allow no further actions"
         },
         "74": {
-            "time": 0.003997087478637695
+            "hits": 429,
+            "time": 0.00400233268737793,
+            "time_per_hit": 9.329446823724777e-06,
+            "percent": 7.696610410391135,
+            "line": "        if old_state != (3, 4) and old_state != (2, 4) and is_valid_state(old_state):"
         },
         "75": {
-            "time": 0.0
+            "hits": 216,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "            ss[old_state] = prob"
         },
         "76": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "77": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        # Check if it could have stayed in this state by bouncing off a wall"
         },
         "78": {
-            "time": 0.003996610641479492
+            "hits": 429,
+            "time": 0.004000425338745117,
+            "time_per_hit": 9.325000789615658e-06,
+            "percent": 7.692942519565905,
+            "line": "        if not is_valid_state(apply_action(a, state)) and state != (3,4) and state != (2,4):"
         },
         "79": {
-            "time": 0.0
+            "hits": 135,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "            if state in ss:"
         },
         "80": {
-            "time": 0.0
+            "hits": 31,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "                ss[state] += prob"
         },
         "81": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "            else:"
         },
         "82": {
-            "time": 0.0
+            "hits": 104,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "                ss[state] = prob"
         },
         "83": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "84": {
-            "time": 0.0
+            "hits": 143,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    return ss"
         },
         "85": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "86": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# Updates old_belief given a list of actions and observations"
         },
         "87": {
-            "time": 0.0
+            "hits": 5,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "def belief_update(old_belief, actions, observations):"
         },
         "88": {
-            "time": 0.0
+            "hits": 17,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    for i in range(len(actions)):"
         },
         "89": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        # Map from belief state to belief"
         },
         "90": {
-            "time": 0.0
+            "hits": 13,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "        new_belief = {}"
         },
         "91": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "92": {
-            "time": 0.0
+            "hits": 13,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "        action = actions[i]"
         },
         "93": {
-            "time": 0.0
+            "hits": 13,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "        obs = observations[i]"
         },
         "94": {
-            "time": 0.004003047943115234
+            "hits": 156,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "        for state in old_belief:"
         },
         "95": {
-            "time": 0.0
+            "hits": 143,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "            prob_sum = 0"
         },
         "96": {
-            "time": 0.0
+            "hits": 143,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "            source_state_probs = source_states(action, state)"
         },
         "97": {
-            "time": 0.0
+            "hits": 463,
+            "time": 0.004001617431640625,
+            "time_per_hit": 8.642802228165497e-06,
+            "percent": 7.695234951331674,
+            "line": "            for source_state in source_state_probs:"
         },
         "98": {
-            "time": 0.0
+            "hits": 320,
+            "time": 0.004000663757324219,
+            "time_per_hit": 1.2502074241638184e-05,
+            "percent": 7.693401005919059,
+            "line": "                prob_sum += source_state_probs[source_state] * old_belief[source_state]"
         },
         "99": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "100": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "            # new_belief[state] = observation_prob(state, obs)"
         },
         "101": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "            #                     * (sum of ways to arrive to state given state and action * old_belief[old_state])"
         },
         "102": {
-            "time": 0.004002809524536133
+            "hits": 143,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "            new_belief[state] = observation_prob(state, obs) * prob_sum"
         },
         "103": {
-            "time": 0.0
+            "hits": 13,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "        old_belief = normalize(new_belief)"
         },
         "104": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "105": {
-            "time": 0.0
+            "hits": 4,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    return old_belief"
         },
         "106": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "107": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# The agent has no idea where it is at the start (i.e., uniform belief state on non-terminal states)"
         },
         "108": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# (row, col) notation"
         },
         "109": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "INITIAL_STATE_UNKNOWN = {"
         },
         "110": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (1,1): 1/9,"
         },
         "111": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (1,2): 1/9,"
         },
         "112": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (1,3): 1/9,"
         },
         "113": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (1,4): 1/9,"
         },
         "114": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (2,1): 1/9,"
         },
         "115": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (2,3): 1/9,"
         },
         "116": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (2,4): 0, # Terminal state"
         },
         "117": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (3,1): 1/9,"
         },
         "118": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (3,2): 1/9,"
         },
         "119": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (3,3): 1/9,"
         },
         "120": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (3,4): 0, # Terminal state"
         },
         "121": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "}"
         },
         "122": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "123": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# The agent knows that it is starting in (1, 1)"
         },
         "124": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "INITIAL_STATE_1_1 = {"
         },
         "125": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (1,1): 1,"
         },
         "126": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (1,2): 0,"
         },
         "127": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (1,3): 0,"
         },
         "128": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (1,4): 0,"
         },
         "129": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (2,1): 0,"
         },
         "130": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (2,3): 0,"
         },
         "131": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (2,4): 0,"
         },
         "132": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (3,1): 0,"
         },
         "133": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (3,2): 0,"
         },
         "134": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (3,3): 0,"
         },
         "135": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (3,4): 0,"
         },
         "136": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "}"
         },
         "137": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "138": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# lecture slide examples:"
         },
         "139": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# print(belief_update(INITIAL_STATE_UNKNOWN, [LEFT, LEFT, LEFT, LEFT, LEFT], [0, 0, 0, 0, 0]))"
         },
         "140": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# print(belief_update(INITIAL_STATE_1_1, [LEFT], [2]))"
         },
         "141": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "142": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# Assignment questions (row, col)"
         },
         "143": {
-            "time": 0
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
         },
         "144": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "belief_update(INITIAL_STATE_UNKNOWN, [UP, UP, UP], [2, 2, 2])"
         },
         "145": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "belief_update(INITIAL_STATE_UNKNOWN, [UP, UP, UP], [1, 1, 1])"
         },
         "146": {
-            "time": 0.0
+            "hits": 3,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "belief_update({"
         },
         "147": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (1,1): 0,"
         },
         "148": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (1,2): 0,"
         },
         "149": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (1,3): 0,"
         },
         "150": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (1,4): 0,"
         },
         "151": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (2,1): 0,"
         },
         "152": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (2,3): 0,"
         },
         "153": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (2,4): 0,"
         },
         "154": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (3,1): 0,"
         },
         "155": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (3,2): 1,"
         },
         "156": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (3,3): 0,"
         },
         "157": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "    (3,4): 0,"
         },
         "158": {
-            "time": 0.0040051937103271484
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "}, [RIGHT, RIGHT, UP], [1, 1, 3])"
         },
         "159": {
-            "time": 0.0
+            "hits": 1,
+            "time": 0.0,
+            "time_per_hit": 0.0,
+            "percent": 0.0,
+            "line": "belief_update(INITIAL_STATE_1_1, [UP, RIGHT, RIGHT, RIGHT], [2, 2, 1, 1])"
         }
     }
 }
