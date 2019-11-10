@@ -6,31 +6,11 @@ import sys
 import pprofile
 
 
-class FileMetadata:
-    def __init__(self, path):
-        """
-        @param path: The file path
-        """
-        self.path = path
-        self.length = self.get_line_count()
-        self.data = None
-
-    def get_line_count(self):
-        with open(self.path) as f:
-            for i, l in enumerate(f):
-                pass
-        return i + 1
-
-
 class HeatMapProfiler:
     def __init__(self):
-        self._file = None
         self._profiler = pprofile.Profile()
 
     def __enter__(self):
-        frame = inspect.stack()[1]
-        module = inspect.getmodule(frame[0])
-        self._file = FileMetadata(module.__file__)
         self._profiler.__enter__()
 
     def __exit__(self, *args, **kwargs):
@@ -38,9 +18,6 @@ class HeatMapProfiler:
         self._profile_data_to_json()
 
     def enable(self):
-        frame = inspect.stack()[1]
-        module = inspect.getmodule(frame[0])
-        self._file = FileMetadata(module.__file__)
         self._profiler.enable()
 
     def disable(self):
@@ -48,7 +25,6 @@ class HeatMapProfiler:
         self._profile_data_to_json()
 
     def run_file(self, file_path, argv=None):
-        self._file = FileMetadata(file_path)
         self._profiler.runfile(open(file_path, "r"), argv or [], file_path)
         self._profile_data_to_json()
 
