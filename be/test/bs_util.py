@@ -1,11 +1,10 @@
 import time
 import json
-import requests
 
 
 def make_http_request(url):
     time.sleep(1.5)
-    with open("data.tweets.json", 'r') as f:
+    with open("tweets.json", 'r') as f:
         return json.load(f)
 
 
@@ -17,7 +16,7 @@ def scrape_page(src_url, web_context, fn):
             last_url = src_url[i]
             print(">>> Scraping {0}".format(src_url[i]))
             try:
-                page = requests.get(src_url[i])
+                page = src_url[i]
             except Exception:
                 last_url = "ERROR"
                 import traceback
