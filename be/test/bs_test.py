@@ -1,4 +1,4 @@
-from be.test import bs_main
+import bs_main
 
 
 def test_main():

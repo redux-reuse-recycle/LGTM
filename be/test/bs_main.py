@@ -1,4 +1,4 @@
-from be.test import bs_util
+import bs_util
 
 
 # You're working on a group project, and you just wrote the main function using the code your teammate wrote (in utils).
