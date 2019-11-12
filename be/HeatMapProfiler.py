@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import inspect
 import json
 import sys
 
@@ -25,6 +24,7 @@ class HeatMapProfiler:
         self._profile_data_to_json()
 
     def run_file(self, file_path, argv=None):
+        sys.path.append(file_path.rpartition('/')[0])
         self._profiler.runfile(open(file_path, "r"), argv or [], file_path)
         self._profile_data_to_json()
 
