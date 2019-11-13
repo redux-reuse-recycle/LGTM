@@ -1,5 +1,6 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.6
 import json
+import os
 import sys
 
 import pprofile
@@ -29,11 +30,7 @@ class HeatMapProfiler:
         self._profile_data_to_json()
 
     def _profile_data_to_json(self):
-        profile_data_to_json = {}
-
-        file_dict = self._profiler._mergeFileTiming()
         total_time = self._profiler.total_time
-        profile_data_to_json["total_time"] = total_time
 
         if not total_time:
             return
@@ -43,9 +40,14 @@ class HeatMapProfiler:
                 return 0
             return value * 100 / scale
 
-        profile_data_to_json = {}
+        profile_data_to_json = {
+            'total_time': total_time
+        }
+
+        file_dict = self._profiler._mergeFileTiming()
+
         for name in self._profiler._getFileNameList(None):
-            if name.startswith('.'):
+            if name[0] != '<' and os.path.dirname(os.__file__) not in name:
                 file_timing = file_dict[name]
                 file_total_time = file_timing.getTotalTime()
                 profile_data_to_json[name] = {"file_total_time": file_total_time,
@@ -82,6 +84,6 @@ def heat_map(func):
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         profiler = HeatMapProfiler()
-        profiler.run_file(sys.argv[1], sys.argv[2:])
+        profiler.run_file(sys.argv[1], sys.argv[1:])
     else:
         print('No target script specified.')
