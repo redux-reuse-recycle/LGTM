@@ -47,7 +47,7 @@ class HeatMapProfiler:
         file_dict = self._profiler._mergeFileTiming()
 
         for name in self._profiler._getFileNameList(None):
-            if name[0] != '<' and os.path.dirname(os.__file__) not in name:
+            if name[0] != '<' and os.path.dirname(os.__file__) not in name and name != __file__:
                 file_timing = file_dict[name]
                 file_total_time = file_timing.getTotalTime()
                 profile_data_to_json[name] = {"file_total_time": file_total_time,
@@ -75,9 +75,9 @@ class HeatMapProfiler:
 
 
 def heat_map(func):
-    def wrapper():
+    def wrapper(*args, **kwargs):
         with HeatMapProfiler():
-            func()
+            return func(*args, **kwargs)
     return wrapper
 
 
