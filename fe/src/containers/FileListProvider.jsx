@@ -3,7 +3,7 @@ import { fetchData } from "../utils/FetchData";
 import { mapDataToFiles } from "../utils/MapData";
 
 // Retrieves the data dumped from the JSON asynchronously.
-const FileListProvider = ({ child }) => {
+const FileListProvider = ({ Child }) => {
   const [isLoaded, setIsLoaded] = React.useState(false);
   const [fileList, setFileList] = React.useState([]);
 
@@ -14,7 +14,7 @@ const FileListProvider = ({ child }) => {
       .then(() => setIsLoaded(true));
   }, []);
 
-  return <child isLoaded={isLoaded} fileList={fileList} />;
+  return <Child isLoaded={isLoaded} fileList={fileList} />;
 };
 
 export default FileListProvider;
