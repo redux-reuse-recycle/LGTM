@@ -10,7 +10,7 @@ const FileListProvider = ({ Child }) => {
   React.useEffect(() => {
     fetchData()
       .then(data => mapDataToFiles(data))
-      .then(data => setFileList(mapDataToFiles(data)))
+      .then(data => setFileList(data))
       .then(() => setIsLoaded(true));
   }, []);
 
