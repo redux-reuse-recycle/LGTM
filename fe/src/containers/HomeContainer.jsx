@@ -1,9 +1,11 @@
-import React from 'react';
-import Home from 'components/Home/Home.jsx'
+import React from "react";
+import Home from "../components/Home/Home";
+import FileListContainer from "./FileListContainer";
 
-const HomeContainer = () => {
-
-    return <Home />;
-};
+const HomeContainer = () => (
+  <Home>
+    <FileListContainer />
+  </Home>
+);
 
 export default HomeContainer;

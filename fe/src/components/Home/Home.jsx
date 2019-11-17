@@ -1,11 +1,18 @@
-import React from 'react';
-import 'components/Home/Home.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import "./Home.scss";
 
-const Home = () => {
+const Home = ({ children }) => {
+  return (
+    <div className="HomeContainer">
+      <p>Hello World</p>
+      <div>{children}</div>
+    </div>
+  );
+};
 
-    return (
-        <div className="HomeContainer">Hello World</div>
-    )
+Home.propTypes = {
+  children: PropTypes.node.isRequired
 };
 
 export default Home;
