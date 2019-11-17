@@ -1,16 +1,15 @@
-import React from 'react';
-import Header from 'components/Header/Header.jsx';
-import Footer from 'components/Footer/Footer.jsx';
-import Routes from 'routes.jsx';
-import './App.css';
-
+import React from "react";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Routes from "./routes";
+import "./App.css";
 
 const App = () => (
-    <>
-        <Header />
-        <Routes />
-        <Footer />
-    </>
+  <>
+    <Header />
+    <Routes />
+    <Footer />
+  </>
 );
 
 export default App;
