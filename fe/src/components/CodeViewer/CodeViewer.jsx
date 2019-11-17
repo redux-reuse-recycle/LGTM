@@ -2,16 +2,20 @@ import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import './CodeViewer.scss';
 
-const CodeViewer = () => {
-
-    const codeString = '(num) => num + 1';
+const CodeViewer = ({ file }) => {
+    if (!file) return null;
+    const codeString = file.lines.map(line => line.lineText).join('\n');
 
     return (
-        <SyntaxHighlighter language="python">
-            {codeString}
-        </SyntaxHighlighter>
+        <div className="CodeViewerContainer">
+            <SyntaxHighlighter
+                language="python"
+                showLineNumbers
+            >
+                {codeString}
+            </SyntaxHighlighter>
+        </div>
     );
-
 };
 
 export default CodeViewer;

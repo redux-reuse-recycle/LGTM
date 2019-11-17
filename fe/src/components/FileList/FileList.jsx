@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
 
 // TODO: Make this beautiful!
@@ -6,7 +7,7 @@ const FileList = ({ files }) => (
   <div>
     <ol>
       {files.map(file => (
-        <li key={file.name}> {file.name} </li>
+          <Link to={`/file/${btoa(file.name)}`}><li key={file.name}> {file.name} </li></Link>
       ))}
     </ol>
   </div>
