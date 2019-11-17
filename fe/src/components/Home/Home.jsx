@@ -5,7 +5,6 @@ import "./Home.scss";
 const Home = ({ children }) => {
   return (
     <div className="HomeContainer">
-      <p>Hello World</p>
       <div>{children}</div>
     </div>
   );
