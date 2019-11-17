@@ -11,24 +11,11 @@ const FileListContainer = () => {
 
   React.useEffect(() => {
     fetchData()
-      .then(data => setFileList([] /* mapDataToFiles(data)) */))
+      .then(data => mapDataToFiles(data))
+      .then(data => setFileList(mapDataToFiles(data)))
       .then(() => setIsLoaded(true));
-    // .then(() => setFileList([]))
-    // .then(data => setFileList(mapDataToFiles(data)))
-    // .then(() => setIsLoaded(true));
-  }, [fileList]);
+  }, []);
 
-  /*
-  React.useEffect(() => {
-    const getFileList = async () => {
-      const data = await fetchData();
-      setFileList(mapDataToFiles(data));
-      setIsLoaded(true);
-    };
-
-    getFileList();
-  }, [fileList]);
-  */
   return !isLoaded ? <Spinner /> : <FileList files={fileList} />;
 };
 
