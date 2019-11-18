@@ -6,15 +6,12 @@
   margin: auto;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
-.FooterTitle {
-  font-size: 1.5rem;
-  font-weight: 700;
+.FooterText {
+  font-size: 1rem;
+  font-weight: 300;
   color: $text-primary;
-}
-
-.FooterSubtitle {
 }

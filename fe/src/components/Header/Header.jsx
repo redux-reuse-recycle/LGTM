@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import Heart from "../Emoji/Heart";
 import "./Header.scss";
 
 const Header = () => (
   <div className="HeaderContainer">
-    <div className="HeaderTitle">LGTM</div>
-    <div className="HeaderSubtitle">
-      Made with <Heart />
-    </div>
+      <Link to="/"><div className="HeaderTitle">LGTM</div></Link>
+      <div className="HeaderSubtitle">
+        Made with <Heart />
+      </div>
   </div>
 );
 

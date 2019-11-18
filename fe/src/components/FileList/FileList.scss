@@ -1,0 +1,36 @@
+.FileListContainer {
+  max-width: 1080px;
+  margin: auto;
+}
+
+.FileList {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.FileListItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 5rem;
+  width: 8rem;
+
+  margin-right: 2rem;
+  padding: 1rem;
+
+  background-color: white;
+  color: #282c34;
+
+  text-decoration: none;
+
+  border-radius: 2rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+  transition: box-shadow 0.2s;
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+}
