@@ -1,0 +1,25 @@
+.Spinner {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 10rem;
+
+  @keyframes spin {
+    0% {
+      font-size: 1rem;
+      transform: rotate(0deg);
+    }
+    50% {
+      font-size: 5rem;
+      transform: rotate(359deg);
+    }
+    100% {
+      font-size: 1rem;
+      transform: rotate(719deg);
+    }
+  }
+
+  animation: spin 1s ease-in-out 0s infinite alternate;
+}
