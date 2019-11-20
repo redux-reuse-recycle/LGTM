@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import './CodeViewer.scss';
 
-const CodeViewer = ({ file }) => {
+const CodeViewer = ({ file, view }) => {
     if (!file) return null;
     const codeString = file.lines.map(line => line.lineText).join('\n');
 
@@ -11,9 +11,17 @@ const CodeViewer = ({ file }) => {
     const maxTime = file.lines.slice().sort((line1, line2) => line2.time - line1.time)[0].time;
 
     const calculateShadeValue = (lineNumber) => {
-        const hits = file.lines[lineNumber - 1].hits;
-        if (hits === 0) return 0;
-        return Math.max( Math.round(hits * 10) / 10, maxHits * 0.05 ).toFixed(2) / maxHits;
+        if (view === 'hits') {
+            const hits = file.lines[lineNumber - 1].hits;
+            if (hits === 0) return 0;
+            return Math.max(Math.round(hits * 10) / 10, maxHits * 0.05).toFixed(2) / maxHits;
+        } else if (view === 'time') {
+            const time = file.lines[lineNumber - 1].time;
+            if (time === 0) return 0;
+            return Math.max(Math.round(time * 10) / 10, maxTime * 0.05).toFixed(2) / maxTime;
+        } else {
+            return 0;
+        }
     };
 
     const StyledSyntaxHighlighter = styled(SyntaxHighlighter)`
