@@ -5,6 +5,8 @@
   max-width: 1080px;
   margin: auto;
 
+  border-bottom: 0.2rem solid #f5f2f0;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,7 +14,7 @@
 
 .HeaderTitle {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 500;
   color: $text-primary;
   text-decoration: none;
 }

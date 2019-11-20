@@ -5,7 +5,7 @@ import "./Header.scss";
 
 const Header = () => (
   <div className="HeaderContainer">
-      <Link to="/"><div className="HeaderTitle">LGTM</div></Link>
+      <Link to="/"><div className="HeaderTitle">LGTM Python Profiler</div></Link>
       <div className="HeaderSubtitle">
         Made with <Heart />
       </div>

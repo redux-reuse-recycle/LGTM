@@ -6,6 +6,7 @@ import './FileList.scss';
 // TODO: Make this beautiful!
 const FileList = ({ files }) => (
   <div className="FileListContainer">
+      <div className="FileListTitle">Project Files</div>
     <div className="FileList">
       {files.map(file => (
           <Link to={`/file/${btoa(file.name)}`}>
