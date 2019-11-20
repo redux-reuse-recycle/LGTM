@@ -5,6 +5,10 @@ import os
 import sys
 
 import pprofile
+import webbrowser
+from shutil import copyfile
+
+DEAFAULT_FILEPATH = './line_level_profile.json'
 
 
 class HeatMapProfiler:
@@ -91,7 +95,7 @@ class HeatMapProfiler:
                         'line': (line or '').rstrip(),
                     }
 
-        with open('line_level_profile.json', 'w', encoding='utf-8') as f:
+        with open(DEAFAULT_FILEPATH, 'w', encoding='utf-8') as f:
             json.dump(profile_data_to_json, f, ensure_ascii=False, indent=4)
 
 
@@ -129,17 +133,27 @@ if __name__ == '__main__':
     args, argv = parser.parse_known_args()
 
     if args.display:
-        print('display')
-        # TODO: Copy given file to default name/location
-        pass
+        print(f'Displaying {args.display}')
+        if not args.display.endswith(".json"):
+            print(f"Warning: displaying a non-JSON file: {args.display}")
+        copyfile(args.display, DEAFAULT_FILEPATH)
     elif not args.view and args.target:
         profiler = HeatMapProfiler(
             sample_mode=args.sample, thread_mode=args.thread, period=args.period)
         profiler.run_file(args.target, [args.target] + argv)
 
     if args.export:
-        print('export')
-        # TODO: Copy default file to given location with new name (append timestamp)
-        pass
+        print(f'Exporting to {args.export}')
+        import datetime
+        if os.path.isdir(args.export):
+            copyfile(DEAFAULT_FILEPATH, args.export + f'line_level_profile{datetime.datetime.now().isoformat()}.json')
+        else:
+            if os.path.exists(args.export):
+                print(f"Warning: overwriting existing file: {args.export}")
+            if not args.export.endswith(".json"):
+                print(f"Warning: writing to a non-JSON format: {args.export.split('.')[-1]}")
+            copyfile(DEAFAULT_FILEPATH, args.export)
 
-    # TODO: invoke frontend here
+    cur_path = os.path.dirname(__file__)
+    new_path = os.path.realpath(os.path.relpath('../fe/public/index.html', cur_path))
+    webbrowser.open_new_tab(f'file:///{new_path}')
