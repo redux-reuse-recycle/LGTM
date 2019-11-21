@@ -1,2 +1,2 @@
 // TODO: Dependency injection of data vs. mockData.
-export { default as Data } from "./mockData.json";
+export { default as Data } from "./line_level_profile.json";
