@@ -11,9 +11,13 @@ const FileViewerContainer = () => {
     return (
         <div>
             <ViewToggle setView={setView} view={view} />
-            <Gradient />
             <FileListProvider
-                Child={({fileList, isLoaded}) => !isLoaded ? <Spinner/> : <FileViewer fileList={fileList} view={view} />}
+                Child={({fileList, isLoaded}) => !isLoaded ? <Spinner/> :
+                    <>
+                        <Gradient fileList={fileList} view={view} />
+                        <FileViewer fileList={fileList} view={view} />
+                    </>
+                }
             />
         </div>
     );
