@@ -1,15 +1,21 @@
 #!/usr/bin/env python3.6
 import argparse
+import datetime
 import json
 import os
 import sys
-
-import pprofile
 import webbrowser
-import datetime
 from shutil import copyfile
 
-DEFAULT_FILEPATH = '../fe/data/line_level_profile.json' #'./line_level_profile.json'
+import pprofile
+
+DEFAULT_FILEPATH = '../fe/data/line_level_profile.json'
+
+
+def _open_in_browser():
+    cur_path = os.path.dirname(__file__)
+    new_path = os.path.realpath(os.path.relpath('../fe/build/index.html', cur_path))
+    webbrowser.open_new_tab(f'file:///{new_path}')
 
 
 class HeatMapProfiler:
@@ -33,6 +39,7 @@ class HeatMapProfiler:
     def __exit__(self, *args, **kwargs):
         self._profiler.__exit__(*args, **kwargs)
         self._profile_data_to_json()
+        _open_in_browser()
 
     def enable(self):
         if self._sample_mode:
@@ -46,11 +53,13 @@ class HeatMapProfiler:
         else:
             self._profiler.disable()
         self._profile_data_to_json()
+        _open_in_browser()
 
     def run_file(self, file_path, argv=None):
         sys.path.append(file_path.rpartition('/')[0])
         self._profiler.runfile(open(file_path, "r"), argv or [], file_path)
         self._profile_data_to_json()
+        _open_in_browser()
 
     def _profile_data_to_json(self):
         if self._sample_mode:
@@ -109,12 +118,6 @@ def heat_map(sample_mode=False, thread_mode=False, period=0.01):
     return wrap
 
 
-def open_in_browser():
-    cur_path = os.path.dirname(__file__)
-    new_path = os.path.realpath(os.path.relpath('../fe/public/index.html', cur_path))
-    webbrowser.open_new_tab(f'file:///{new_path}')
-
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("target", nargs='?',
@@ -160,4 +163,4 @@ if __name__ == '__main__':
                 print(f"Warning: writing to a non-JSON file: {args.export.split('.')[-1]}")
             copyfile(DEFAULT_FILEPATH, args.export)
 
-    open_in_browser()
+    _open_in_browser()
