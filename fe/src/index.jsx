@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import path from 'path';
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
 } from "react-router-dom";
 import dotenv from 'dotenv';
 
