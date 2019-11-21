@@ -5,6 +5,11 @@ import os
 import sys
 
 import pprofile
+import webbrowser
+import datetime
+from shutil import copyfile
+
+DEFAULT_FILEPATH = '../fe/data/line_level_profile.json' #'./line_level_profile.json'
 
 
 class HeatMapProfiler:
@@ -91,7 +96,7 @@ class HeatMapProfiler:
                         'line': (line or '').rstrip(),
                     }
 
-        with open('line_level_profile.json', 'w', encoding='utf-8') as f:
+        with open(DEFAULT_FILEPATH, 'w', encoding='utf-8') as f:
             json.dump(profile_data_to_json, f, ensure_ascii=False, indent=4)
 
 
@@ -102,6 +107,12 @@ def heat_map(sample_mode=False, thread_mode=False, period=0.01):
                 return func(*args, **kwargs)
         return wrapper
     return wrap
+
+
+def open_in_browser():
+    cur_path = os.path.dirname(__file__)
+    new_path = os.path.realpath(os.path.relpath('../fe/public/index.html', cur_path))
+    webbrowser.open_new_tab(f'file:///{new_path}')
 
 
 if __name__ == '__main__':
@@ -129,17 +140,24 @@ if __name__ == '__main__':
     args, argv = parser.parse_known_args()
 
     if args.display:
-        print('display')
-        # TODO: Copy given file to default name/location
-        pass
+        print(f'Displaying {args.display}')
+        if not args.display.endswith(".json"):
+            print(f"Warning: displaying a non-JSON file: {args.display}")
+        copyfile(args.display, DEFAULT_FILEPATH)
     elif not args.view and args.target:
         profiler = HeatMapProfiler(
             sample_mode=args.sample, thread_mode=args.thread, period=args.period)
         profiler.run_file(args.target, [args.target] + argv)
 
     if args.export:
-        print('export')
-        # TODO: Copy default file to given location with new name (append timestamp)
-        pass
+        print(f'Exporting to {args.export}')
+        if os.path.isdir(args.export):
+            copyfile(DEFAULT_FILEPATH, args.export + f'line_level_profile{datetime.datetime.now().isoformat()}.json')
+        else:
+            if os.path.exists(args.export):
+                print(f"Warning: overwriting existing file: {args.export}")
+            if not args.export.endswith(".json"):
+                print(f"Warning: writing to a non-JSON file: {args.export.split('.')[-1]}")
+            copyfile(DEFAULT_FILEPATH, args.export)
 
-    # TODO: invoke frontend here
+    open_in_browser()
