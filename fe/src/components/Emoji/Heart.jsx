@@ -1,9 +1,6 @@
 import React from "react";
+import Emoji from "./Emoji";
 
-const Heart = () => (
-  <span role="img" aria-label="Heart Emoji">
-    ❤️
-  </span>
-);
+const Heart = () => <Emoji symbol="❤️" name="Heart" />;
 
 export default Heart;

@@ -1,1119 +1,627 @@
 {
-  "./test/one_file.py": {
-    "file_total_time": 0.052001237869262695,
-    "file_total_time_percent": 100.0,
-    "1": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# (row, col) format"
-    },
-    "2": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "3": {
-      "hits": 2,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "UP = (1, 0)"
-    },
-    "4": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "RIGHT = (0, 1)"
-    },
-    "5": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "DOWN = (-1, 0)"
-    },
-    "6": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "LEFT = (0, -1)"
-    },
-    "7": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "8": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# action is one of UP, RIGHT, DOWN, LEFT"
-    },
-    "9": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# state: (row, col)"
-    },
-    "10": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# Returns the state (row, col) before action was applied"
-    },
-    "11": {
-      "hits": 430,
-      "time": 0.003998994827270508,
-      "time_per_hit": 9.29998797039653e-6,
-      "percent": 7.690191601446983,
-      "line": "def unapply_action(action, state):"
-    },
-    "12": {
-      "hits": 429,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    return (state[0] - action[0], state[1] - action[1])"
-    },
-    "13": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "14": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# Returns the state (row, col) after action is applied"
-    },
-    "15": {
-      "hits": 430,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "def apply_action(action, state):"
-    },
-    "16": {
-      "hits": 429,
-      "time": 0.003998517990112305,
-      "time_per_hit": 9.320554755506537e-6,
-      "percent": 7.689274628740676,
-      "line": "    return (state[0] + action[0], state[1] + action[1])"
-    },
-    "17": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "18": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# Observations: 1 for 1 wall, 2 for 2 walls, 3 for end, 0 for no observation"
-    },
-    "19": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# Returns the probability of observing obs in state"
-    },
-    "20": {
-      "hits": 144,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "def observation_prob(state, obs):"
-    },
-    "21": {
-      "hits": 143,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    if obs == 3:"
-    },
-    "22": {
-      "hits": 11,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "        if state == (3, 4) or state == (2, 4):"
-    },
-    "23": {
-      "hits": 2,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "            return 1"
-    },
-    "24": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "        else:"
-    },
-    "25": {
-      "hits": 9,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "            return 0"
-    },
-    "26": {
-      "hits": 132,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    if obs == 0:"
-    },
-    "27": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "        return 1"
-    },
-    "28": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "29": {
-      "hits": 132,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    if state[1] == 3:"
-    },
-    "30": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "        # In 3rd column"
-    },
-    "31": {
-      "hits": 36,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "        if obs == 1:"
-    },
-    "32": {
-      "hits": 21,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "            return 0.9"
-    },
-    "33": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "        else:"
-    },
-    "34": {
-      "hits": 15,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "            return 0.1"
-    },
-    "35": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "    else:"
-    },
-    "36": {
-      "hits": 96,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "        if obs == 2:"
-    },
-    "37": {
-      "hits": 40,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "            return 0.9"
-    },
-    "38": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "        else:"
-    },
-    "39": {
-      "hits": 56,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "            return 0.1"
-    },
-    "40": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "41": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# Returns true if state is not (2, 2) and in the grid, false otherwise"
-    },
-    "42": {
-      "hits": 820,
-      "time": 0.003998994827270508,
-      "time_per_hit": 4.876822960085985e-6,
-      "percent": 7.690191601446983,
-      "line": "def is_valid_state(state):"
-    },
-    "43": {
-      "hits": 819,
-      "time": 0.012001991271972656,
-      "time_per_hit": 1.4654445997524611e-5,
-      "percent": 23.080203017757178,
-      "line": "    return state != (2, 2) and 1 <= state[0] <= 3 and 1 <= state[1] <= 4"
-    },
-    "44": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "45": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# Normalizes a belief object"
-    },
-    "46": {
-      "hits": 14,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "def normalize(belief):"
-    },
-    "47": {
-      "hits": 13,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    belief_sum = 0"
-    },
-    "48": {
-      "hits": 156,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    for state in belief:"
-    },
-    "49": {
-      "hits": 143,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "        belief_sum += belief[state]"
-    },
-    "50": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "51": {
-      "hits": 156,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    for state in belief:"
-    },
-    "52": {
-      "hits": 143,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "        belief[state] = belief[state] / belief_sum"
-    },
-    "53": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "54": {
-      "hits": 13,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    return belief"
-    },
-    "55": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "56": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# Returns a list of (direction, probability) tuples given an action"
-    },
-    "57": {
-      "hits": 144,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "def possible_outcomes(action):"
-    },
-    "58": {
-      "hits": 143,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    if action == UP:"
-    },
-    "59": {
-      "hits": 88,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "        return [(UP, 0.8), (LEFT, 0.1), (RIGHT, 0.1)]"
-    },
-    "60": {
-      "hits": 55,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    elif action == LEFT:"
-    },
-    "61": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "        return [(LEFT, 0.8), (DOWN, 0.1), (UP, 0.1)]"
-    },
-    "62": {
-      "hits": 55,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    elif action == RIGHT:"
-    },
-    "63": {
-      "hits": 55,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "        return [(RIGHT, 0.8), (UP, 0.1), (DOWN, 0.1)]"
-    },
-    "64": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "    else:"
-    },
-    "65": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "        # action == DOWN"
-    },
-    "66": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "        return [(DOWN, 0.8), (LEFT, 0.1), (RIGHT, 0.1)]"
-    },
-    "67": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "68": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# Given an action and a state, returns a mapping of the state(s) the agent may have been in to their probability"
-    },
-    "69": {
-      "hits": 144,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "def source_states(action, state):"
-    },
-    "70": {
-      "hits": 143,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    ss = {}"
-    },
-    "71": {
-      "hits": 572,
-      "time": 0.003965854644775391,
-      "time_per_hit": 6.933312316040893e-6,
-      "percent": 7.626461998358619,
-      "line": "    for a, prob in possible_outcomes(action):"
-    },
-    "72": {
-      "hits": 429,
-      "time": 0.008031845092773438,
-      "time_per_hit": 1.8722249633504516e-5,
-      "percent": 15.44548826504179,
-      "line": "        old_state = unapply_action(a, state)"
-    },
-    "73": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "        # Terminal states allow no further actions"
-    },
-    "74": {
-      "hits": 429,
-      "time": 0.00400233268737793,
-      "time_per_hit": 9.329446823724777e-6,
-      "percent": 7.696610410391135,
-      "line": "        if old_state != (3, 4) and old_state != (2, 4) and is_valid_state(old_state):"
-    },
-    "75": {
-      "hits": 216,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "            ss[old_state] = prob"
-    },
-    "76": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "77": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "        # Check if it could have stayed in this state by bouncing off a wall"
-    },
-    "78": {
-      "hits": 429,
-      "time": 0.004000425338745117,
-      "time_per_hit": 9.325000789615658e-6,
-      "percent": 7.692942519565905,
-      "line": "        if not is_valid_state(apply_action(a, state)) and state != (3,4) and state != (2,4):"
-    },
-    "79": {
-      "hits": 135,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "            if state in ss:"
-    },
-    "80": {
-      "hits": 31,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "                ss[state] += prob"
-    },
-    "81": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "            else:"
-    },
-    "82": {
-      "hits": 104,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "                ss[state] = prob"
-    },
-    "83": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "84": {
-      "hits": 143,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    return ss"
-    },
-    "85": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "86": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# Updates old_belief given a list of actions and observations"
-    },
-    "87": {
-      "hits": 5,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "def belief_update(old_belief, actions, observations):"
-    },
-    "88": {
-      "hits": 17,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    for i in range(len(actions)):"
-    },
-    "89": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "        # Map from belief state to belief"
-    },
-    "90": {
-      "hits": 13,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "        new_belief = {}"
-    },
-    "91": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "92": {
-      "hits": 13,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "        action = actions[i]"
-    },
-    "93": {
-      "hits": 13,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "        obs = observations[i]"
-    },
-    "94": {
-      "hits": 156,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "        for state in old_belief:"
-    },
-    "95": {
-      "hits": 143,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "            prob_sum = 0"
-    },
-    "96": {
-      "hits": 143,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "            source_state_probs = source_states(action, state)"
-    },
-    "97": {
-      "hits": 463,
-      "time": 0.004001617431640625,
-      "time_per_hit": 8.642802228165497e-6,
-      "percent": 7.695234951331674,
-      "line": "            for source_state in source_state_probs:"
-    },
-    "98": {
-      "hits": 320,
-      "time": 0.004000663757324219,
-      "time_per_hit": 1.2502074241638184e-5,
-      "percent": 7.693401005919059,
-      "line": "                prob_sum += source_state_probs[source_state] * old_belief[source_state]"
-    },
-    "99": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "100": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "            # new_belief[state] = observation_prob(state, obs)"
-    },
-    "101": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "            #                     * (sum of ways to arrive to state given state and action * old_belief[old_state])"
-    },
-    "102": {
-      "hits": 143,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "            new_belief[state] = observation_prob(state, obs) * prob_sum"
-    },
-    "103": {
-      "hits": 13,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "        old_belief = normalize(new_belief)"
-    },
-    "104": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "105": {
-      "hits": 4,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    return old_belief"
-    },
-    "106": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "107": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# The agent has no idea where it is at the start (i.e., uniform belief state on non-terminal states)"
-    },
-    "108": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# (row, col) notation"
-    },
-    "109": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "INITIAL_STATE_UNKNOWN = {"
-    },
-    "110": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (1,1): 1/9,"
-    },
-    "111": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (1,2): 1/9,"
-    },
-    "112": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (1,3): 1/9,"
-    },
-    "113": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (1,4): 1/9,"
-    },
-    "114": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (2,1): 1/9,"
-    },
-    "115": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (2,3): 1/9,"
-    },
-    "116": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (2,4): 0, # Terminal state"
-    },
-    "117": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (3,1): 1/9,"
-    },
-    "118": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (3,2): 1/9,"
-    },
-    "119": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (3,3): 1/9,"
-    },
-    "120": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (3,4): 0, # Terminal state"
-    },
-    "121": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "}"
-    },
-    "122": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "123": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# The agent knows that it is starting in (1, 1)"
-    },
-    "124": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "INITIAL_STATE_1_1 = {"
-    },
-    "125": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (1,1): 1,"
-    },
-    "126": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (1,2): 0,"
-    },
-    "127": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (1,3): 0,"
-    },
-    "128": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (1,4): 0,"
-    },
-    "129": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (2,1): 0,"
-    },
-    "130": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (2,3): 0,"
-    },
-    "131": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (2,4): 0,"
-    },
-    "132": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (3,1): 0,"
-    },
-    "133": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (3,2): 0,"
-    },
-    "134": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (3,3): 0,"
-    },
-    "135": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (3,4): 0,"
-    },
-    "136": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "}"
-    },
-    "137": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "138": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# lecture slide examples:"
-    },
-    "139": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# print(belief_update(INITIAL_STATE_UNKNOWN, [LEFT, LEFT, LEFT, LEFT, LEFT], [0, 0, 0, 0, 0]))"
-    },
-    "140": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# print(belief_update(INITIAL_STATE_1_1, [LEFT], [2]))"
-    },
-    "141": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "142": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": "# Assignment questions (row, col)"
-    },
-    "143": {
-      "hits": 0,
-      "time": 0,
-      "time_per_hit": 0,
-      "percent": 0.0,
-      "line": ""
-    },
-    "144": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "belief_update(INITIAL_STATE_UNKNOWN, [UP, UP, UP], [2, 2, 2])"
-    },
-    "145": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "belief_update(INITIAL_STATE_UNKNOWN, [UP, UP, UP], [1, 1, 1])"
-    },
-    "146": {
-      "hits": 3,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "belief_update({"
-    },
-    "147": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (1,1): 0,"
-    },
-    "148": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (1,2): 0,"
-    },
-    "149": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (1,3): 0,"
-    },
-    "150": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (1,4): 0,"
-    },
-    "151": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (2,1): 0,"
-    },
-    "152": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (2,3): 0,"
-    },
-    "153": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (2,4): 0,"
-    },
-    "154": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (3,1): 0,"
-    },
-    "155": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (3,2): 1,"
-    },
-    "156": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (3,3): 0,"
-    },
-    "157": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "    (3,4): 0,"
-    },
-    "158": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "}, [RIGHT, RIGHT, UP], [1, 1, 3])"
-    },
-    "159": {
-      "hits": 1,
-      "time": 0.0,
-      "time_per_hit": 0.0,
-      "percent": 0.0,
-      "line": "belief_update(INITIAL_STATE_1_1, [UP, RIGHT, RIGHT, RIGHT], [2, 2, 1, 1])"
+    "total_time": 3.013237714767456,
+    "test/bs_util.py": {
+        "file_total_time": 3.0060417652130127,
+        "file_total_time_percent": 99.76118878642806,
+        "1": {
+            "hits": 2,
+            "time": 2.002716064453125e-05,
+            "time_per_hit": 1.0013580322265625e-05,
+            "percent": 0.0006646392531986753,
+            "line": "import time"
+        },
+        "2": {
+            "hits": 1,
+            "time": 4.76837158203125e-06,
+            "time_per_hit": 4.76837158203125e-06,
+            "percent": 0.00015824744123777983,
+            "line": "import json"
+        },
+        "3": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
+        },
+        "4": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
+        },
+        "5": {
+            "hits": 3,
+            "time": 6.723403930664062e-05,
+            "time_per_hit": 2.2411346435546875e-05,
+            "percent": 0.0022312889214526955,
+            "line": "def make_http_request(url):"
+        },
+        "6": {
+            "hits": 2,
+            "time": 3.0052268505096436,
+            "time_per_hit": 1.5026134252548218,
+            "percent": 99.73414429872054,
+            "line": "    time.sleep(1.5)"
+        },
+        "7": {
+            "hits": 2,
+            "time": 0.0003228187561035156,
+            "time_per_hit": 0.0001614093780517578,
+            "percent": 0.010713351771797695,
+            "line": "    with open(\"test/tweets.json\", 'r') as f:"
+        },
+        "8": {
+            "hits": 2,
+            "time": 9.322166442871094e-05,
+            "time_per_hit": 4.661083221435547e-05,
+            "percent": 0.003093737476198596,
+            "line": "        return json.load(f)"
+        },
+        "9": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
+        },
+        "10": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
+        },
+        "11": {
+            "hits": 1,
+            "time": 9.059906005859375e-06,
+            "time_per_hit": 9.059906005859375e-06,
+            "percent": 0.0003006701383517817,
+            "line": "def scrape_page(src_url, web_context, fn):"
+        },
+        "12": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "    links = []"
+        },
+        "13": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "    last_url = \"\""
+        },
+        "14": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "    for i in range(len(src_url)):"
+        },
+        "15": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        if src_url[i] != last_url:"
+        },
+        "16": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "            last_url = src_url[i]"
+        },
+        "17": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "            print(\">>> Scraping {0}\".format(src_url[i]))"
+        },
+        "18": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "            try:"
+        },
+        "19": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "                page = src_url[i]"
+        },
+        "20": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "            except Exception:"
+        },
+        "21": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "                last_url = \"ERROR\""
+        },
+        "22": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "                import traceback"
+        },
+        "23": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "                print(\">>> Error scraping {0}:\".format(src_url[i]))"
+        },
+        "24": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "                print(traceback.format_exc())"
+        },
+        "25": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "                continue"
+        },
+        "26": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        hits = page.text.find_all(web_context)"
+        },
+        "27": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        if not hits:"
+        },
+        "28": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "            print(\">>> No results found!\")"
+        },
+        "29": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "            continue"
+        },
+        "30": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        else:"
+        },
+        "31": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "            errors = 0"
+        },
+        "32": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "            for hit in hits:"
+        },
+        "33": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "                try:"
+        },
+        "34": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "                    result = fn(hit)"
+        },
+        "35": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "                except (UnicodeEncodeError, UnicodeDecodeError):"
+        },
+        "36": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "                    errors += 1"
+        },
+        "37": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "                    continue"
+        },
+        "38": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "                if result:"
+        },
+        "39": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "                    links.append(result)"
+        },
+        "40": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "            if errors > 0:"
+        },
+        "41": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "                print(\">>> We had trouble reading {} result{}.\".format(errors, \"s\" if errors > 1 else \"\"))"
+        },
+        "42": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "    return (links)"
+        },
+        "43": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
+        },
+        "44": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
+        },
+        "45": {
+            "hits": 2,
+            "time": 8.821487426757812e-06,
+            "time_per_hit": 4.410743713378906e-06,
+            "percent": 0.0002927577662898927,
+            "line": "def push_to_DB(data):"
+        },
+        "46": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "    # stub"
+        },
+        "47": {
+            "hits": 1,
+            "time": 5.0067901611328125e-06,
+            "time_per_hit": 5.0067901611328125e-06,
+            "percent": 0.00016615981329966883,
+            "line": "    return"
+        },
+        "48": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
+        },
+        "49": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
+        },
+        "50": {
+            "hits": 2,
+            "time": 8.344650268554688e-06,
+            "time_per_hit": 4.172325134277344e-06,
+            "percent": 0.0002769330221661147,
+            "line": "def sort(list):"
+        },
+        "51": {
+            "hits": 1,
+            "time": 3.0994415283203125e-06,
+            "time_per_hit": 3.0994415283203125e-06,
+            "percent": 0.0001028608368045569,
+            "line": "    c = []"
+        },
+        "52": {
+            "hits": 21,
+            "time": 0.00011205673217773438,
+            "time_per_hit": 5.3360348656063985e-06,
+            "percent": 0.003718814869087826,
+            "line": "    for a in make_http_request(\"https://twitter.com/ArtificalW\"):"
+        },
+        "53": {
+            "hits": 20,
+            "time": 7.939338684082031e-05,
+            "time_per_hit": 3.969669342041015e-06,
+            "percent": 0.0026348198966090345,
+            "line": "        b = False"
+        },
+        "54": {
+            "hits": 20,
+            "time": 7.2479248046875e-05,
+            "time_per_hit": 3.62396240234375e-06,
+            "percent": 0.0024053611068142536,
+            "line": "        for b in c:"
+        },
+        "55": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "            if a[\"id\"] > b[\"id\"] and not b:"
+        },
+        "56": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "                c.insert(c.index(b), a)"
+        },
+        "57": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "                b = True"
+        },
+        "58": {
+            "hits": 1,
+            "time": 3.814697265625e-06,
+            "time_per_hit": 3.814697265625e-06,
+            "percent": 0.00012659795299022387,
+            "line": "    return c"
+        },
+        "59": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
+        },
+        "60": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
+        },
+        "61": {
+            "hits": 1,
+            "time": 4.76837158203125e-06,
+            "time_per_hit": 4.76837158203125e-06,
+            "percent": 0.00015824744123777983,
+            "line": "def find(list, id):"
+        },
+        "62": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "    result = False"
+        },
+        "63": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "    for tweet in list:"
+        },
+        "64": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        if tweet[\"name\"] == id:"
+        },
+        "65": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "            result = tweet"
+        },
+        "66": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "    return result"
+        }
+    },
+    "test/bs_main.py": {
+        "file_total_time": 0.0001742839813232422,
+        "file_total_time_percent": 0.005783943977240853,
+        "1": {
+            "hits": 2,
+            "time": 4.220008850097656e-05,
+            "time_per_hit": 2.110004425048828e-05,
+            "percent": 0.0014004898549543514,
+            "line": "import bs_util"
+        },
+        "2": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
+        },
+        "3": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
+        },
+        "4": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# You're working on a group project, and you just wrote the main function using the code your teammate wrote (in utils)."
+        },
+        "5": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "# Your teammate's test all pass, but your main function runs slower than you'd expect. What is/are the culprit(s)?"
+        },
+        "6": {
+            "hits": 2,
+            "time": 6.198883056640625e-06,
+            "time_per_hit": 3.0994415283203125e-06,
+            "percent": 0.0002057216736091138,
+            "line": "def run():"
+        },
+        "7": {
+            "hits": 1,
+            "time": 1.6927719116210938e-05,
+            "time_per_hit": 1.6927719116210938e-05,
+            "percent": 0.0005617784163941184,
+            "line": "    data = bs_util.make_http_request(\"https://twitter.com/ArtificalW\")"
+        },
+        "8": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "    # Sorted data is faster to search"
+        },
+        "9": {
+            "hits": 1,
+            "time": 4.601478576660156e-05,
+            "time_per_hit": 4.601478576660156e-05,
+            "percent": 0.0015270878079445755,
+            "line": "    data = bs_util.sort(data)"
+        },
+        "10": {
+            "hits": 1,
+            "time": 8.821487426757812e-06,
+            "time_per_hit": 8.821487426757812e-06,
+            "percent": 0.0002927577662898927,
+            "line": "    map = {}"
+        },
+        "11": {
+            "hits": 1,
+            "time": 5.9604644775390625e-06,
+            "time_per_hit": 5.9604644775390625e-06,
+            "percent": 0.0001978093015472248,
+            "line": "    for tweet in data:"
+        },
+        "12": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        # find tweet by friend"
+        },
+        "13": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        if tweet['user']['name'] in map.keys():"
+        },
+        "14": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "            map.get(tweet['user']['name']).append(bs_util.find(data, tweet['user'][\"friends\"]['name']))"
+        },
+        "15": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "        else:"
+        },
+        "16": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": "            map[tweet['user']['name']] = [tweet['user'][\"friends\"]['name']]"
+        },
+        "17": {
+            "hits": 1,
+            "time": 1.811981201171875e-05,
+            "time_per_hit": 1.811981201171875e-05,
+            "percent": 0.0006013402767035634,
+            "line": "    bs_util.push_to_DB(map)"
+        },
+        "18": {
+            "hits": 1,
+            "time": 5.9604644775390625e-06,
+            "time_per_hit": 5.9604644775390625e-06,
+            "percent": 0.0001978093015472248,
+            "line": "    return map"
+        },
+        "19": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
+        },
+        "20": {
+            "hits": 1,
+            "time": 4.0531158447265625e-06,
+            "time_per_hit": 4.0531158447265625e-06,
+            "percent": 0.00013451032505211287,
+            "line": "if __name__ == \"__main__\":"
+        },
+        "21": {
+            "hits": 1,
+            "time": 2.002716064453125e-05,
+            "time_per_hit": 2.002716064453125e-05,
+            "percent": 0.0006646392531986753,
+            "line": "    run()"
+        },
+        "22": {
+            "hits": 0,
+            "time": 0,
+            "time_per_hit": 0,
+            "percent": 0.0,
+            "line": ""
+        }
     }
-  }
 }

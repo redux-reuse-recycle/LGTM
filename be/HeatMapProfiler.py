@@ -4,19 +4,28 @@ import datetime
 import json
 import os
 import sys
+import http.server
+import socketserver
 import webbrowser
 from shutil import copyfile
 
 import pprofile
 
-DEFAULT_FILEPATH = '../fe/data/line_level_profile.json'
-
+PORT = 8000
+SERVER_DIRECTORY = '../fe/'
+DEFAULT_DIRECTORY = SERVER_DIRECTORY + '/build/static/data/'
+DEFAULT_FILEPATH = DEFAULT_DIRECTORY + 'line_level_profile.json'
 
 def _open_in_browser():
-    cur_path = os.path.dirname(__file__)
-    new_path = os.path.realpath(os.path.relpath('../fe/build/index.html', cur_path))
-    webbrowser.open_new_tab(f'file:///{new_path}')
+    webbrowser.open_new_tab(f'http://localhost:{PORT}/build/index.html')
 
+def _start_server():
+    os.chdir(SERVER_DIRECTORY)
+    Handler = http.server.SimpleHTTPRequestHandler
+    with socketserver.TCPServer(("", PORT), Handler) as httpd:
+        print("serving at port", PORT)
+        _open_in_browser
+        httpd.serve_forever()
 
 class HeatMapProfiler:
     def __init__(self, sample_mode=False, thread_mode=False, period=0.01):
@@ -110,6 +119,7 @@ class HeatMapProfiler:
                         'line': (line or '').rstrip(),
                     }
 
+        os.makedirs(DEFAULT_DIRECTORY, exist_ok=True)
         with open(DEFAULT_FILEPATH, 'w', encoding='utf-8') as f:
             json.dump(profile_data_to_json, f, ensure_ascii=False, indent=4)
 
@@ -168,4 +178,4 @@ if __name__ == '__main__':
                 print(f"Warning: writing to a non-JSON file: {args.export.split('.')[-1]}")
             copyfile(DEFAULT_FILEPATH, args.export)
 
-    _open_in_browser()
+    _start_server()
