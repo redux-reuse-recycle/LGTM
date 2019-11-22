@@ -21,8 +21,8 @@ const Gradient = ({ fileList, view }) => {
             <div className={cx(
                 "GradientColour",
                 {
-                    "GradientColour--blue": view === 'time',
-                    "GradientColour--red": view === 'hits',
+                    "GradientColour--blue": view === 'hits',
+                    "GradientColour--red": view === 'time',
                 }
             )}/>
             <div className="GradientTextContainer">

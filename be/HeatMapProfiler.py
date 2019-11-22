@@ -103,6 +103,8 @@ class HeatMapProfiler:
                                               "file_total_time_percent": percent(file_total_time, total_time)}
 
                 last_line = file_timing.getLastLine()
+                first_hit = 0
+                last_hit = 0
                 for lineno, line in pprofile.LineIterator(
                         self._profiler._getline,
                         file_timing.filename,
@@ -111,6 +113,10 @@ class HeatMapProfiler:
                     if not line and lineno > last_line:
                         break
                     hits, duration = file_timing.getHitStatsFor(lineno)
+                    if not first_hit and hits:
+                        first_hit = last_hit = lineno
+                    elif hits:
+                        last_hit = lineno
                     profile_data_to_json[name][lineno] = {
                         'hits': hits,
                         'time': duration,
@@ -118,6 +124,11 @@ class HeatMapProfiler:
                         'percent': percent(duration, total_time),
                         'line': (line or '').rstrip(),
                     }
+
+                profile_data_to_json[name] = {
+                    key: value for key, value in profile_data_to_json[name].items()
+                    if type(key) == str or first_hit <= int(key) <= last_hit
+                }
 
         os.makedirs(DEFAULT_DIRECTORY, exist_ok=True)
         with open(DEFAULT_FILEPATH, 'w', encoding='utf-8') as f:

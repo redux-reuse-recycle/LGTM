@@ -16,14 +16,15 @@
 .GradientColour {
   height: 2rem;
   width: 100%;
+  border: 0.05rem solid grey;
 }
 
 .GradientColour--blue {
-  background-image: linear-gradient(to right, transparent, blue);
+  background-image: linear-gradient(to right, transparent, rgba(0,0,180,0.4));
 }
 
 .GradientColour--red {
-  background-image: linear-gradient(to right, transparent, red);
+  background-image: linear-gradient(to right, transparent, rgba(255,255,0,0.25), rgba(255,128,0,0.5), rgba(255,0,0,0.5));
 }
 
 .GradientTextContainer {

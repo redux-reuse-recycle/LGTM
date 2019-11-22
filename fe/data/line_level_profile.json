@@ -1,627 +1,627 @@
 {
-    "total_time": 3.013237714767456,
-    "test/bs_util.py": {
-        "file_total_time": 3.0060417652130127,
-        "file_total_time_percent": 99.76118878642806,
-        "1": {
-            "hits": 2,
-            "time": 2.002716064453125e-05,
-            "time_per_hit": 1.0013580322265625e-05,
-            "percent": 0.0006646392531986753,
-            "line": "import time"
-        },
-        "2": {
-            "hits": 1,
-            "time": 4.76837158203125e-06,
-            "time_per_hit": 4.76837158203125e-06,
-            "percent": 0.00015824744123777983,
-            "line": "import json"
-        },
-        "3": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": ""
-        },
-        "4": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": ""
-        },
-        "5": {
-            "hits": 3,
-            "time": 6.723403930664062e-05,
-            "time_per_hit": 2.2411346435546875e-05,
-            "percent": 0.0022312889214526955,
-            "line": "def make_http_request(url):"
-        },
-        "6": {
-            "hits": 2,
-            "time": 3.0052268505096436,
-            "time_per_hit": 1.5026134252548218,
-            "percent": 99.73414429872054,
-            "line": "    time.sleep(1.5)"
-        },
-        "7": {
-            "hits": 2,
-            "time": 0.0003228187561035156,
-            "time_per_hit": 0.0001614093780517578,
-            "percent": 0.010713351771797695,
-            "line": "    with open(\"test/tweets.json\", 'r') as f:"
-        },
-        "8": {
-            "hits": 2,
-            "time": 9.322166442871094e-05,
-            "time_per_hit": 4.661083221435547e-05,
-            "percent": 0.003093737476198596,
-            "line": "        return json.load(f)"
-        },
-        "9": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": ""
-        },
-        "10": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": ""
-        },
-        "11": {
-            "hits": 1,
-            "time": 9.059906005859375e-06,
-            "time_per_hit": 9.059906005859375e-06,
-            "percent": 0.0003006701383517817,
-            "line": "def scrape_page(src_url, web_context, fn):"
-        },
-        "12": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "    links = []"
-        },
-        "13": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "    last_url = \"\""
-        },
-        "14": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "    for i in range(len(src_url)):"
-        },
-        "15": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "        if src_url[i] != last_url:"
-        },
-        "16": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "            last_url = src_url[i]"
-        },
-        "17": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "            print(\">>> Scraping {0}\".format(src_url[i]))"
-        },
-        "18": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "            try:"
-        },
-        "19": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "                page = src_url[i]"
-        },
-        "20": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "            except Exception:"
-        },
-        "21": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "                last_url = \"ERROR\""
-        },
-        "22": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "                import traceback"
-        },
-        "23": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "                print(\">>> Error scraping {0}:\".format(src_url[i]))"
-        },
-        "24": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "                print(traceback.format_exc())"
-        },
-        "25": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "                continue"
-        },
-        "26": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "        hits = page.text.find_all(web_context)"
-        },
-        "27": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "        if not hits:"
-        },
-        "28": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "            print(\">>> No results found!\")"
-        },
-        "29": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "            continue"
-        },
-        "30": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "        else:"
-        },
-        "31": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "            errors = 0"
-        },
-        "32": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "            for hit in hits:"
-        },
-        "33": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "                try:"
-        },
-        "34": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "                    result = fn(hit)"
-        },
-        "35": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "                except (UnicodeEncodeError, UnicodeDecodeError):"
-        },
-        "36": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "                    errors += 1"
-        },
-        "37": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "                    continue"
-        },
-        "38": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "                if result:"
-        },
-        "39": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "                    links.append(result)"
-        },
-        "40": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "            if errors > 0:"
-        },
-        "41": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "                print(\">>> We had trouble reading {} result{}.\".format(errors, \"s\" if errors > 1 else \"\"))"
-        },
-        "42": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "    return (links)"
-        },
-        "43": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": ""
-        },
-        "44": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": ""
-        },
-        "45": {
-            "hits": 2,
-            "time": 8.821487426757812e-06,
-            "time_per_hit": 4.410743713378906e-06,
-            "percent": 0.0002927577662898927,
-            "line": "def push_to_DB(data):"
-        },
-        "46": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "    # stub"
-        },
-        "47": {
-            "hits": 1,
-            "time": 5.0067901611328125e-06,
-            "time_per_hit": 5.0067901611328125e-06,
-            "percent": 0.00016615981329966883,
-            "line": "    return"
-        },
-        "48": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": ""
-        },
-        "49": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": ""
-        },
-        "50": {
-            "hits": 2,
-            "time": 8.344650268554688e-06,
-            "time_per_hit": 4.172325134277344e-06,
-            "percent": 0.0002769330221661147,
-            "line": "def sort(list):"
-        },
-        "51": {
-            "hits": 1,
-            "time": 3.0994415283203125e-06,
-            "time_per_hit": 3.0994415283203125e-06,
-            "percent": 0.0001028608368045569,
-            "line": "    c = []"
-        },
-        "52": {
-            "hits": 21,
-            "time": 0.00011205673217773438,
-            "time_per_hit": 5.3360348656063985e-06,
-            "percent": 0.003718814869087826,
-            "line": "    for a in make_http_request(\"https://twitter.com/ArtificalW\"):"
-        },
-        "53": {
-            "hits": 20,
-            "time": 7.939338684082031e-05,
-            "time_per_hit": 3.969669342041015e-06,
-            "percent": 0.0026348198966090345,
-            "line": "        b = False"
-        },
-        "54": {
-            "hits": 20,
-            "time": 7.2479248046875e-05,
-            "time_per_hit": 3.62396240234375e-06,
-            "percent": 0.0024053611068142536,
-            "line": "        for b in c:"
-        },
-        "55": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "            if a[\"id\"] > b[\"id\"] and not b:"
-        },
-        "56": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "                c.insert(c.index(b), a)"
-        },
-        "57": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "                b = True"
-        },
-        "58": {
-            "hits": 1,
-            "time": 3.814697265625e-06,
-            "time_per_hit": 3.814697265625e-06,
-            "percent": 0.00012659795299022387,
-            "line": "    return c"
-        },
-        "59": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": ""
-        },
-        "60": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": ""
-        },
-        "61": {
-            "hits": 1,
-            "time": 4.76837158203125e-06,
-            "time_per_hit": 4.76837158203125e-06,
-            "percent": 0.00015824744123777983,
-            "line": "def find(list, id):"
-        },
-        "62": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "    result = False"
-        },
-        "63": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "    for tweet in list:"
-        },
-        "64": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "        if tweet[\"name\"] == id:"
-        },
-        "65": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "            result = tweet"
-        },
-        "66": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "    return result"
-        }
+  "total_time": 3.013237714767456,
+  "test/bs_util.py": {
+    "file_total_time": 3.0060417652130127,
+    "file_total_time_percent": 99.76118878642806,
+    "1": {
+      "hits": 2,
+      "time": 2.002716064453125e-5,
+      "time_per_hit": 1.0013580322265625e-5,
+      "percent": 0.0006646392531986753,
+      "line": "import time"
     },
-    "test/bs_main.py": {
-        "file_total_time": 0.0001742839813232422,
-        "file_total_time_percent": 0.005783943977240853,
-        "1": {
-            "hits": 2,
-            "time": 4.220008850097656e-05,
-            "time_per_hit": 2.110004425048828e-05,
-            "percent": 0.0014004898549543514,
-            "line": "import bs_util"
-        },
-        "2": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": ""
-        },
-        "3": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": ""
-        },
-        "4": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "# You're working on a group project, and you just wrote the main function using the code your teammate wrote (in utils)."
-        },
-        "5": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "# Your teammate's test all pass, but your main function runs slower than you'd expect. What is/are the culprit(s)?"
-        },
-        "6": {
-            "hits": 2,
-            "time": 6.198883056640625e-06,
-            "time_per_hit": 3.0994415283203125e-06,
-            "percent": 0.0002057216736091138,
-            "line": "def run():"
-        },
-        "7": {
-            "hits": 1,
-            "time": 1.6927719116210938e-05,
-            "time_per_hit": 1.6927719116210938e-05,
-            "percent": 0.0005617784163941184,
-            "line": "    data = bs_util.make_http_request(\"https://twitter.com/ArtificalW\")"
-        },
-        "8": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "    # Sorted data is faster to search"
-        },
-        "9": {
-            "hits": 1,
-            "time": 4.601478576660156e-05,
-            "time_per_hit": 4.601478576660156e-05,
-            "percent": 0.0015270878079445755,
-            "line": "    data = bs_util.sort(data)"
-        },
-        "10": {
-            "hits": 1,
-            "time": 8.821487426757812e-06,
-            "time_per_hit": 8.821487426757812e-06,
-            "percent": 0.0002927577662898927,
-            "line": "    map = {}"
-        },
-        "11": {
-            "hits": 1,
-            "time": 5.9604644775390625e-06,
-            "time_per_hit": 5.9604644775390625e-06,
-            "percent": 0.0001978093015472248,
-            "line": "    for tweet in data:"
-        },
-        "12": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "        # find tweet by friend"
-        },
-        "13": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "        if tweet['user']['name'] in map.keys():"
-        },
-        "14": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "            map.get(tweet['user']['name']).append(bs_util.find(data, tweet['user'][\"friends\"]['name']))"
-        },
-        "15": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "        else:"
-        },
-        "16": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": "            map[tweet['user']['name']] = [tweet['user'][\"friends\"]['name']]"
-        },
-        "17": {
-            "hits": 1,
-            "time": 1.811981201171875e-05,
-            "time_per_hit": 1.811981201171875e-05,
-            "percent": 0.0006013402767035634,
-            "line": "    bs_util.push_to_DB(map)"
-        },
-        "18": {
-            "hits": 1,
-            "time": 5.9604644775390625e-06,
-            "time_per_hit": 5.9604644775390625e-06,
-            "percent": 0.0001978093015472248,
-            "line": "    return map"
-        },
-        "19": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": ""
-        },
-        "20": {
-            "hits": 1,
-            "time": 4.0531158447265625e-06,
-            "time_per_hit": 4.0531158447265625e-06,
-            "percent": 0.00013451032505211287,
-            "line": "if __name__ == \"__main__\":"
-        },
-        "21": {
-            "hits": 1,
-            "time": 2.002716064453125e-05,
-            "time_per_hit": 2.002716064453125e-05,
-            "percent": 0.0006646392531986753,
-            "line": "    run()"
-        },
-        "22": {
-            "hits": 0,
-            "time": 0,
-            "time_per_hit": 0,
-            "percent": 0.0,
-            "line": ""
-        }
+    "2": {
+      "hits": 1,
+      "time": 4.76837158203125e-6,
+      "time_per_hit": 4.76837158203125e-6,
+      "percent": 0.00015824744123777983,
+      "line": "import json"
+    },
+    "3": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": ""
+    },
+    "4": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": ""
+    },
+    "5": {
+      "hits": 3,
+      "time": 6.723403930664062e-5,
+      "time_per_hit": 2.2411346435546875e-5,
+      "percent": 0.0022312889214526955,
+      "line": "def make_http_request(url):"
+    },
+    "6": {
+      "hits": 2,
+      "time": 3.0052268505096436,
+      "time_per_hit": 1.5026134252548218,
+      "percent": 99.73414429872054,
+      "line": "    time.sleep(1.5)"
+    },
+    "7": {
+      "hits": 2,
+      "time": 0.0003228187561035156,
+      "time_per_hit": 0.0001614093780517578,
+      "percent": 0.010713351771797695,
+      "line": "    with open(\"test/tweets.json\", 'r') as f:"
+    },
+    "8": {
+      "hits": 2,
+      "time": 9.322166442871094e-5,
+      "time_per_hit": 4.661083221435547e-5,
+      "percent": 0.003093737476198596,
+      "line": "        return json.load(f)"
+    },
+    "9": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": ""
+    },
+    "10": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": ""
+    },
+    "11": {
+      "hits": 1,
+      "time": 9.059906005859375e-6,
+      "time_per_hit": 9.059906005859375e-6,
+      "percent": 0.0003006701383517817,
+      "line": "def scrape_page(src_url, web_context, fn):"
+    },
+    "12": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "    links = []"
+    },
+    "13": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "    last_url = \"\""
+    },
+    "14": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "    for i in range(len(src_url)):"
+    },
+    "15": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "        if src_url[i] != last_url:"
+    },
+    "16": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "            last_url = src_url[i]"
+    },
+    "17": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "            print(\">>> Scraping {0}\".format(src_url[i]))"
+    },
+    "18": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "            try:"
+    },
+    "19": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "                page = src_url[i]"
+    },
+    "20": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "            except Exception:"
+    },
+    "21": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "                last_url = \"ERROR\""
+    },
+    "22": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "                import traceback"
+    },
+    "23": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "                print(\">>> Error scraping {0}:\".format(src_url[i]))"
+    },
+    "24": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "                print(traceback.format_exc())"
+    },
+    "25": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "                continue"
+    },
+    "26": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "        hits = page.text.find_all(web_context)"
+    },
+    "27": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "        if not hits:"
+    },
+    "28": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "            print(\">>> No results found!\")"
+    },
+    "29": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "            continue"
+    },
+    "30": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "        else:"
+    },
+    "31": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "            errors = 0"
+    },
+    "32": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "            for hit in hits:"
+    },
+    "33": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "                try:"
+    },
+    "34": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "                    result = fn(hit)"
+    },
+    "35": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "                except (UnicodeEncodeError, UnicodeDecodeError):"
+    },
+    "36": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "                    errors += 1"
+    },
+    "37": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "                    continue"
+    },
+    "38": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "                if result:"
+    },
+    "39": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "                    links.append(result)"
+    },
+    "40": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "            if errors > 0:"
+    },
+    "41": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "                print(\">>> We had trouble reading {} result{}.\".format(errors, \"s\" if errors > 1 else \"\"))"
+    },
+    "42": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "    return (links)"
+    },
+    "43": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": ""
+    },
+    "44": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": ""
+    },
+    "45": {
+      "hits": 2,
+      "time": 8.821487426757812e-6,
+      "time_per_hit": 4.410743713378906e-6,
+      "percent": 0.0002927577662898927,
+      "line": "def push_to_DB(data):"
+    },
+    "46": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "    # stub"
+    },
+    "47": {
+      "hits": 1,
+      "time": 5.0067901611328125e-6,
+      "time_per_hit": 5.0067901611328125e-6,
+      "percent": 0.00016615981329966883,
+      "line": "    return"
+    },
+    "48": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": ""
+    },
+    "49": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": ""
+    },
+    "50": {
+      "hits": 2,
+      "time": 8.344650268554688e-6,
+      "time_per_hit": 4.172325134277344e-6,
+      "percent": 0.0002769330221661147,
+      "line": "def sort(list):"
+    },
+    "51": {
+      "hits": 1,
+      "time": 3.0994415283203125e-6,
+      "time_per_hit": 3.0994415283203125e-6,
+      "percent": 0.0001028608368045569,
+      "line": "    c = []"
+    },
+    "52": {
+      "hits": 21,
+      "time": 0.00011205673217773438,
+      "time_per_hit": 5.3360348656063985e-6,
+      "percent": 0.003718814869087826,
+      "line": "    for a in make_http_request(\"https://twitter.com/ArtificalW\"):"
+    },
+    "53": {
+      "hits": 20,
+      "time": 7.939338684082031e-5,
+      "time_per_hit": 3.969669342041015e-6,
+      "percent": 0.0026348198966090345,
+      "line": "        b = False"
+    },
+    "54": {
+      "hits": 20,
+      "time": 7.2479248046875e-5,
+      "time_per_hit": 3.62396240234375e-6,
+      "percent": 0.0024053611068142536,
+      "line": "        for b in c:"
+    },
+    "55": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "            if a[\"id\"] > b[\"id\"] and not b:"
+    },
+    "56": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "                c.insert(c.index(b), a)"
+    },
+    "57": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "                b = True"
+    },
+    "58": {
+      "hits": 1,
+      "time": 3.814697265625e-6,
+      "time_per_hit": 3.814697265625e-6,
+      "percent": 0.00012659795299022387,
+      "line": "    return c"
+    },
+    "59": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": ""
+    },
+    "60": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": ""
+    },
+    "61": {
+      "hits": 1,
+      "time": 4.76837158203125e-6,
+      "time_per_hit": 4.76837158203125e-6,
+      "percent": 0.00015824744123777983,
+      "line": "def find(list, id):"
+    },
+    "62": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "    result = False"
+    },
+    "63": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "    for tweet in list:"
+    },
+    "64": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "        if tweet[\"name\"] == id:"
+    },
+    "65": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "            result = tweet"
+    },
+    "66": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "    return result"
     }
+  },
+  "test/bs_main.py": {
+    "file_total_time": 0.0001742839813232422,
+    "file_total_time_percent": 0.005783943977240853,
+    "1": {
+      "hits": 2,
+      "time": 4.220008850097656e-5,
+      "time_per_hit": 2.110004425048828e-5,
+      "percent": 0.0014004898549543514,
+      "line": "import bs_util"
+    },
+    "2": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": ""
+    },
+    "3": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": ""
+    },
+    "4": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "# You're working on a group project, and you just wrote the main function using the code your teammate wrote (in utils)."
+    },
+    "5": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "# Your teammate's test all pass, but your main function runs slower than you'd expect. What is/are the culprit(s)?"
+    },
+    "6": {
+      "hits": 2,
+      "time": 6.198883056640625e-6,
+      "time_per_hit": 3.0994415283203125e-6,
+      "percent": 0.0002057216736091138,
+      "line": "def run():"
+    },
+    "7": {
+      "hits": 1,
+      "time": 1.6927719116210938e-5,
+      "time_per_hit": 1.6927719116210938e-5,
+      "percent": 0.0005617784163941184,
+      "line": "    data = bs_util.make_http_request(\"https://twitter.com/ArtificalW\")"
+    },
+    "8": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "    # Sorted data is faster to search"
+    },
+    "9": {
+      "hits": 1,
+      "time": 4.601478576660156e-5,
+      "time_per_hit": 4.601478576660156e-5,
+      "percent": 0.0015270878079445755,
+      "line": "    data = bs_util.sort(data)"
+    },
+    "10": {
+      "hits": 1,
+      "time": 8.821487426757812e-6,
+      "time_per_hit": 8.821487426757812e-6,
+      "percent": 0.0002927577662898927,
+      "line": "    map = {}"
+    },
+    "11": {
+      "hits": 1,
+      "time": 5.9604644775390625e-6,
+      "time_per_hit": 5.9604644775390625e-6,
+      "percent": 0.0001978093015472248,
+      "line": "    for tweet in data:"
+    },
+    "12": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "        # find tweet by friend"
+    },
+    "13": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "        if tweet['user']['name'] in map.keys():"
+    },
+    "14": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "            map.get(tweet['user']['name']).append(bs_util.find(data, tweet['user'][\"friends\"]['name']))"
+    },
+    "15": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "        else:"
+    },
+    "16": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": "            map[tweet['user']['name']] = [tweet['user'][\"friends\"]['name']]"
+    },
+    "17": {
+      "hits": 1,
+      "time": 1.811981201171875e-5,
+      "time_per_hit": 1.811981201171875e-5,
+      "percent": 0.0006013402767035634,
+      "line": "    bs_util.push_to_DB(map)"
+    },
+    "18": {
+      "hits": 1,
+      "time": 5.9604644775390625e-6,
+      "time_per_hit": 5.9604644775390625e-6,
+      "percent": 0.0001978093015472248,
+      "line": "    return map"
+    },
+    "19": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": ""
+    },
+    "20": {
+      "hits": 1,
+      "time": 4.0531158447265625e-6,
+      "time_per_hit": 4.0531158447265625e-6,
+      "percent": 0.00013451032505211287,
+      "line": "if __name__ == \"__main__\":"
+    },
+    "21": {
+      "hits": 1,
+      "time": 2.002716064453125e-5,
+      "time_per_hit": 2.002716064453125e-5,
+      "percent": 0.0006646392531986753,
+      "line": "    run()"
+    },
+    "22": {
+      "hits": 0,
+      "time": 0,
+      "time_per_hit": 0,
+      "percent": 0.0,
+      "line": ""
+    }
+  }
 }

@@ -32,9 +32,12 @@ const CodeViewer = ({ file, view }) => {
           ${(() => {
             let styles = '';
             for (let i = 1; i <= file.lines.length; i++) {
+                const shadeValue = calculateShadeValue(i);
                 styles += `
                     span:nth-of-type(${i}) {
-                        background-color: ${view === "hits" ? `rgba(255,0,0, ${calculateShadeValue(i)})` : `rgba(0,0,255, ${calculateShadeValue(i)})`};
+                        background-color: ${view === "hits" ?
+                    `rgba(0,0,180, ${shadeValue ? Math.max(shadeValue/2.5, 0.05) : 0})` :
+                    `rgba(255,${(1 - shadeValue) * 255},0, ${shadeValue > 0.5 ? 0.5 : shadeValue})`};
                         display: block;
                         text-shadow: none !important;
                         span {
@@ -55,6 +58,7 @@ const CodeViewer = ({ file, view }) => {
                 language="python"
                 showLineNumbers
                 wrapLines
+                startingLineNumber={parseInt(file.lines[0].lineNumber)}
             >
                 {codeString}
             </StyledSyntaxHighlighter>
