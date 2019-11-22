@@ -57,6 +57,7 @@ const CodeViewer = ({ file, view }) => {
                 language="python"
                 showLineNumbers
                 wrapLines
+                startingLineNumber={parseInt(file.lines[0].lineNumber)}
             >
                 {codeString}
             </StyledSyntaxHighlighter>

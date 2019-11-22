@@ -4,19 +4,32 @@ import datetime
 import json
 import os
 import sys
+import http.server
+import socketserver
 import webbrowser
 from shutil import copyfile
 
 import pprofile
 
-DEFAULT_FILEPATH = '../fe/data/line_level_profile.json'
+PORT = 8000
+SERVER_DIRECTORY = '../fe/'
+DEFAULT_DIRECTORY = SERVER_DIRECTORY + '/build/static/data/'
+DEFAULT_FILEPATH = DEFAULT_DIRECTORY + 'line_level_profile.json'
 
+def _open_in_browser(port = PORT):
+    webbrowser.open_new_tab(f'http://localhost:{port}/build/index.html')
 
-def _open_in_browser():
-    cur_path = os.path.dirname(__file__)
-    new_path = os.path.realpath(os.path.relpath('../fe/build/index.html', cur_path))
-    webbrowser.open_new_tab(f'file:///{new_path}')
-
+def _start_server(port = PORT):
+    os.chdir(SERVER_DIRECTORY)
+    Handler = http.server.SimpleHTTPRequestHandler
+    try:
+        with socketserver.TCPServer(("", port), Handler) as httpd:
+            _open_in_browser(port)
+            httpd.serve_forever()
+    except OSError:
+        _start_server(port + 1)
+    except KeyboardInterrupt:
+        httpd.server_close()
 
 class HeatMapProfiler:
     def __init__(self, sample_mode=False, thread_mode=False, period=0.01):
@@ -94,6 +107,8 @@ class HeatMapProfiler:
                                               "file_total_time_percent": percent(file_total_time, total_time)}
 
                 last_line = file_timing.getLastLine()
+                first_hit = 0
+                last_hit = 0
                 for lineno, line in pprofile.LineIterator(
                         self._profiler._getline,
                         file_timing.filename,
@@ -102,6 +117,10 @@ class HeatMapProfiler:
                     if not line and lineno > last_line:
                         break
                     hits, duration = file_timing.getHitStatsFor(lineno)
+                    if not first_hit and hits:
+                        first_hit = last_hit = lineno
+                    elif hits:
+                        last_hit = lineno
                     profile_data_to_json[name][lineno] = {
                         'hits': hits,
                         'time': duration,
@@ -110,6 +129,12 @@ class HeatMapProfiler:
                         'line': (line or '').rstrip(),
                     }
 
+                profile_data_to_json[name] = {
+                    key: value for key, value in profile_data_to_json[name].items()
+                    if type(key) == str or first_hit <= int(key) <= last_hit
+                }
+
+        os.makedirs(DEFAULT_DIRECTORY, exist_ok=True)
         with open(DEFAULT_FILEPATH, 'w', encoding='utf-8') as f:
             json.dump(profile_data_to_json, f, ensure_ascii=False, indent=4)
 
@@ -168,4 +193,4 @@ if __name__ == '__main__':
                 print(f"Warning: writing to a non-JSON file: {args.export.split('.')[-1]}")
             copyfile(DEFAULT_FILEPATH, args.export)
 
-    _open_in_browser()
+    _start_server()

@@ -17,15 +17,17 @@ const mapDataToLines = entries =>
 
 // Maps the given data to file objects with a known schema.
 const mapDataToFiles = data => {
-  return Object.entries(data).map(([key, value]) => {
-    const { file_total_time, file_total_time_percent, ...lines } = value;
-    return {
-      name: key,
-      totalTime: file_total_time,
-      totalTimePercent: file_total_time_percent,
-      lines: mapDataToLines(Object.entries(lines))
-    };
-  });
+  return Object.entries(data)
+    .filter(([key, _]) => key !== "total_time")
+    .map(([key, value]) => {
+      const { file_total_time, file_total_time_percent, ...lines } = value;
+      return {
+        name: key,
+        totalTime: file_total_time,
+        totalTimePercent: file_total_time_percent,
+        lines: mapDataToLines(Object.entries(lines))
+      };
+    });
 };
 
 export { mapDataToFiles, mapDataToLines };
