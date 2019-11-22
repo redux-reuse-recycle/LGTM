@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from "react-router";
+import cx from 'classnames';
 import './Gradient.scss';
 
 const Gradient = ({ fileList, view }) => {
@@ -17,7 +18,13 @@ const Gradient = ({ fileList, view }) => {
     if (view === "none") return null;
     return (
         <div className="GradientContainer">
-            <div className="GradientColour"/>
+            <div className={cx(
+                "GradientColour",
+                {
+                    "GradientColour--blue": view === 'time',
+                    "GradientColour--red": view === 'hits',
+                }
+            )}/>
             <div className="GradientTextContainer">
                 <div className="GradientTextItem">0</div>
                 <div className="GradientTextItem">{maxCount}</div>

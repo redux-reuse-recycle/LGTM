@@ -6,14 +6,14 @@ import Gradient from '../components/Gradient/Gradient.jsx';
 import Spinner from '../components/Spinner/Spinner.jsx';
 
 const FileViewerContainer = () => {
-    const [view, setView] = useState('none');
+    const [view, setView] = useState('hits');
 
     return (
         <div>
-            <ViewToggle setView={setView} view={view} />
             <FileListProvider
                 Child={({fileList, isLoaded}) => !isLoaded ? <Spinner/> :
                     <>
+                        <ViewToggle fileList={fileList} setView={setView} view={view} />
                         <Gradient fileList={fileList} view={view} />
                         <FileViewer fileList={fileList} view={view} />
                     </>

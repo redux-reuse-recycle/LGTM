@@ -14,11 +14,11 @@ const CodeViewer = ({ file, view }) => {
         if (view === 'hits') {
             const hits = file.lines[lineNumber - 1].hits;
             if (hits === 0) return 0;
-            return Math.max(Math.round(hits * 10) / 10, maxHits * 0.05).toFixed(2) / maxHits;
+            return hits / maxHits;
         } else if (view === 'time') {
             const time = file.lines[lineNumber - 1].time;
             if (time === 0) return 0;
-            return Math.max(Math.round(time * 10) / 10, maxTime * 0.05).toFixed(2) / maxTime;
+            return time / maxTime;
         } else {
             return 0;
         }
@@ -31,8 +31,9 @@ const CodeViewer = ({ file, view }) => {
             for (let i = 1; i <= file.lines.length; i++) {
                 styles += `
                     span:nth-of-type(${i}) {
-                        background-color: rgba(255,0,0, ${calculateShadeValue(i)});
+                        background-color: ${view === "hits" ? `rgba(255,0,0, ${calculateShadeValue(i)})` : `rgba(0,0,255, ${calculateShadeValue(i)})`};
                         display: block;
+                        text-shadow: none !important;
                         span {
                             display: initial;
                             background-color: initial;
