@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import './CodeViewer.scss';
 
 const CodeViewer = ({ file, view }) => {
-    if (!file) return null;
-    const codeString = file.lines.map(line => line.lineText).join('\n');
+    const codeString = useMemo(() => file.lines.map(line => line.lineText).join('\n'), [file]);
 
-    const linesSortedByHits = file.lines.slice().sort((line1, line2) => line2.hits - line1.hits);
-    const linesSortedByTime = file.lines.slice().sort((line1, line2) => line2.time - line1.time);
+    const linesSortedByHits = useMemo(() => file.lines.slice().sort((line1, line2) => line2.hits - line1.hits), [file]);
+    const linesSortedByTime = useMemo(() => file.lines.slice().sort((line1, line2) => line2.time - line1.time), [file]);
 
-    const maxHits = (linesSortedByHits && linesSortedByHits[0] && linesSortedByHits[0].hits) || 0;
-    const maxTime = (linesSortedByTime && linesSortedByTime[0] && linesSortedByTime[0].time) || 0;
+    const maxHits = useMemo(() => (linesSortedByHits && linesSortedByHits[0] && linesSortedByHits[0].hits) || 0, [file]);
+    const maxTime = useMemo(() => (linesSortedByTime && linesSortedByTime[0] && linesSortedByTime[0].time) || 0, [file]);
 
     const calculateShadeValue = (lineNumber) => {
         if (view === 'hits') {
