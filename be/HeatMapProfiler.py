@@ -80,10 +80,15 @@ class HeatMapProfiler:
         }
 
         file_dict = self._profiler._mergeFileTiming()
+        cur_path = os.path.dirname(__file__)
 
         for name in self._profiler._getFileNameList(None):
-            if name[0] != '<' and os.path.dirname(os.__file__) not in name and name != __file__:
+            if name and name[0] != '<' and name != __file__:
                 file_timing = file_dict[name]
+                name = os.path.relpath(name, cur_path)
+                if name[:2] == '..':
+                    continue
+
                 file_total_time = file_timing.getTotalTime()
                 profile_data_to_json[name] = {"file_total_time": file_total_time,
                                               "file_total_time_percent": percent(file_total_time, total_time)}
