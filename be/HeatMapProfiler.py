@@ -16,16 +16,20 @@ SERVER_DIRECTORY = '../fe/'
 DEFAULT_DIRECTORY = SERVER_DIRECTORY + '/build/static/data/'
 DEFAULT_FILEPATH = DEFAULT_DIRECTORY + 'line_level_profile.json'
 
-def _open_in_browser():
-    webbrowser.open_new_tab(f'http://localhost:{PORT}/build/index.html')
+def _open_in_browser(port = PORT):
+    webbrowser.open_new_tab(f'http://localhost:{port}/build/index.html')
 
-def _start_server():
+def _start_server(port = PORT):
     os.chdir(SERVER_DIRECTORY)
     Handler = http.server.SimpleHTTPRequestHandler
-    with socketserver.TCPServer(("", PORT), Handler) as httpd:
-        print("serving at port", PORT)
-        _open_in_browser
-        httpd.serve_forever()
+    try:
+        with socketserver.TCPServer(("", port), Handler) as httpd:
+            _open_in_browser(port)
+            httpd.serve_forever()
+    except OSError:
+        _start_server(port + 1)
+    except KeyboardInterrupt:
+        httpd.server_close()
 
 class HeatMapProfiler:
     def __init__(self, sample_mode=False, thread_mode=False, period=0.01):
