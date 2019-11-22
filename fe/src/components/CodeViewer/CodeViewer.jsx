@@ -7,16 +7,19 @@ const CodeViewer = ({ file, view }) => {
     if (!file) return null;
     const codeString = file.lines.map(line => line.lineText).join('\n');
 
-    const maxHits = file.lines.slice().sort((line1, line2) => line2.hits - line1.hits)[0].hits;
-    const maxTime = file.lines.slice().sort((line1, line2) => line2.time - line1.time)[0].time;
+    const linesSortedByHits = file.lines.slice().sort((line1, line2) => line2.hits - line1.hits);
+    const linesSortedByTime = file.lines.slice().sort((line1, line2) => line2.time - line1.time);
+
+    const maxHits = (linesSortedByHits && linesSortedByHits[0] && linesSortedByHits[0].hits) || 0;
+    const maxTime = (linesSortedByTime && linesSortedByTime[0] && linesSortedByTime[0].time) || 0;
 
     const calculateShadeValue = (lineNumber) => {
         if (view === 'hits') {
-            const hits = file.lines[lineNumber - 1].hits;
+            const hits = (file.lines && file.lines[lineNumber - 1] && file.lines[lineNumber - 1].hits) || 0;
             if (hits === 0) return 0;
             return hits / maxHits;
         } else if (view === 'time') {
-            const time = file.lines[lineNumber - 1].time;
+            const time = (file.lines && file.lines[lineNumber - 1] && file.lines[lineNumber - 1].time) || 0;
             if (time === 0) return 0;
             return time / maxTime;
         } else {
