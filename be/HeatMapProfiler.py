@@ -4,32 +4,33 @@ import datetime
 import json
 import os
 import sys
-import http.server
-import socketserver
 import webbrowser
 from shutil import copyfile
 
 import pprofile
 
-PORT = 8000
-SERVER_DIRECTORY = '../fe/'
-DEFAULT_DIRECTORY = SERVER_DIRECTORY + '/build/static/data/'
-DEFAULT_FILEPATH = DEFAULT_DIRECTORY + 'line_level_profile.json'
+DEFAULT_FILEPATH = '../fe/data/line_level_profile.json'
+cur_path = os.path.dirname(__file__)
+html_path = os.path.realpath(os.path.relpath('../fe/build/index.html', cur_path))
 
-def _open_in_browser(port = PORT):
-    webbrowser.open_new_tab(f'http://localhost:{port}/build/index.html')
 
-def _start_server(port = PORT):
-    os.chdir(SERVER_DIRECTORY)
-    Handler = http.server.SimpleHTTPRequestHandler
-    try:
-        with socketserver.TCPServer(("", port), Handler) as httpd:
-            _open_in_browser(port)
-            httpd.serve_forever()
-    except OSError:
-        _start_server(port + 1)
-    except KeyboardInterrupt:
-        httpd.server_close()
+def _open_in_browser():
+    webbrowser.open_new_tab(f'file:///{html_path}')
+
+
+def _write_profile_data(json_data):
+    with open(html_path, 'r') as html_file:
+        lines = html_file.readlines()
+
+    first_line = lines[0]
+    start_position = first_line.find('<script')
+    end_position = first_line.find('<script>!function')
+    first_line = first_line[:start_position] + f'''<script>var line_level_profile = {
+        json.dumps(json_data)};</script>''' + first_line[end_position:]
+
+    with open(html_path, 'w') as html_file:
+        html_file.write(first_line)
+
 
 class HeatMapProfiler:
     def __init__(self, sample_mode=False, thread_mode=False, period=0.01):
@@ -51,7 +52,7 @@ class HeatMapProfiler:
 
     def __exit__(self, *args, **kwargs):
         self._profiler.__exit__(*args, **kwargs)
-        self._profile_data_to_json()
+        _write_profile_data(self._profile_data_to_json())
         _open_in_browser()
 
     def enable(self):
@@ -65,14 +66,13 @@ class HeatMapProfiler:
             self._profiler.stop()
         else:
             self._profiler.disable()
-        self._profile_data_to_json()
+        _write_profile_data(self._profile_data_to_json())
         _open_in_browser()
 
     def run_file(self, file_path, argv=None):
         sys.path.append(file_path.rpartition('/')[0])
         self._profiler.runfile(open(file_path, "r"), argv or [], file_path)
-        self._profile_data_to_json()
-        _open_in_browser()
+        _write_profile_data(self._profile_data_to_json())
 
     def _profile_data_to_json(self):
         if self._sample_mode:
@@ -93,10 +93,8 @@ class HeatMapProfiler:
         }
 
         file_dict = self._profiler._mergeFileTiming()
-        cur_path = os.path.dirname(__file__)
-
         for name in self._profiler._getFileNameList(None):
-            if name and name[0] != '<' and name != __file__:
+            if name and name[0] != '<' and name[0] != '_' and name != __file__:
                 file_timing = file_dict[name]
                 name = os.path.relpath(name, cur_path)
                 if name[:2] == '..':
@@ -134,9 +132,10 @@ class HeatMapProfiler:
                     if type(key) == str or first_hit <= int(key) <= last_hit
                 }
 
-        os.makedirs(DEFAULT_DIRECTORY, exist_ok=True)
         with open(DEFAULT_FILEPATH, 'w', encoding='utf-8') as f:
             json.dump(profile_data_to_json, f, ensure_ascii=False, indent=4)
+
+        return profile_data_to_json
 
 
 def heat_map(sample_mode=False, thread_mode=False, period=0.01):
@@ -152,31 +151,35 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("target", nargs='?',
                         help='Path to the target python script to run with the profiler.')
-    parser.add_argument('-d', '--display', type=str, default='',
-                        help='Path to existing json profiler data file to display.'
+    parser.add_argument('--load', type=str, default='',
+                        help='Path to existing json profiler data file to load.'
                              ' The profiler will not be run, and any existing profiler data'
                              ' (from a previous run without the export flag) will be overwritten.')
-    parser.add_argument('-e', '--export', type=str, default='',
+    parser.add_argument('--export', type=str, default='',
                         help='Output path for json profiler data file.')
-    parser.add_argument('-p', '--period', type=float, default=0.001,
+    parser.add_argument('--period', type=float, default=0.001,
                         help='Only has an effect in sample mode. Number of seconds to wait between'
                              ' consecutive samples.')
-    parser.add_argument('-s', '--sample', action='store_true', default=False,
+    parser.add_argument('--sample', action='store_true', default=False,
                         help='Run profiler in sample mode. This will drastically improve'
                              ' performance, but no timing information will be generated.')
-    parser.add_argument('-t', '--thread', action='store_true', default=False,
+    parser.add_argument('--thread', action='store_true', default=False,
                         help='Run profiler in thread-aware mode. Any threading.Thread threads'
                              ' created will be included in the profiler data.')
-    parser.add_argument('-v', '--view', action='store_true', default=False,
+    parser.add_argument('--view', action='store_true', default=False,
                         help='View only flag. The profiler will not be run and the results'
                              'from the last profiler run will be displayed.')
     args, argv = parser.parse_known_args()
 
-    if args.display:
-        print(f'Displaying {args.display}')
-        if not args.display.endswith(".json"):
-            print(f"Warning: displaying a non-JSON file: {args.display}")
-        copyfile(args.display, DEFAULT_FILEPATH)
+    if args.load:
+        if not args.load.endswith(".json"):
+            print(f"Error: non-JSON file specified: {args.load}")
+            exit(-1)
+        with open(args.load, 'r') as json_file:
+            print(f'Loading {args.load}')
+            _write_profile_data(json.load(json_file))
+        copyfile(args.load, DEFAULT_FILEPATH)
+
     elif not args.view and args.target:
         profiler = HeatMapProfiler(
             sample_mode=args.sample, thread_mode=args.thread, period=args.period)
@@ -193,4 +196,4 @@ if __name__ == '__main__':
                 print(f"Warning: writing to a non-JSON file: {args.export.split('.')[-1]}")
             copyfile(DEFAULT_FILEPATH, args.export)
 
-    _start_server()
+    _open_in_browser()
